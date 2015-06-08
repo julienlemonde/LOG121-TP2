@@ -35,20 +35,20 @@ public class Ligne extends FormePrincipal{
 		numSeq = reponseRecu.getID();
 		nomForme = reponseRecu.getTypeForme();
 		if(Integer.parseInt(tabCoord[0]) < Integer.parseInt(tabCoord[2])){
-			this.x2 = Integer.parseInt(tabCoord[0]);
-			this.x1 = Integer.parseInt(tabCoord[2]);
-		}
-		else{
 			this.x1 = Integer.parseInt(tabCoord[0]);
 			this.x2 = Integer.parseInt(tabCoord[2]);
 		}
-		if(Integer.parseInt(tabCoord[1]) < Integer.parseInt(tabCoord[3])){
-			this.y2 = Integer.parseInt(tabCoord[1]);
-			this.y1 = Integer.parseInt(tabCoord[3]);
-		}
 		else{
+			this.x2 = Integer.parseInt(tabCoord[0]);
+			this.x1 = Integer.parseInt(tabCoord[2]);
+		}
+		if(Integer.parseInt(tabCoord[1]) < Integer.parseInt(tabCoord[3])){
 			this.y1 = Integer.parseInt(tabCoord[1]);
 			this.y2 = Integer.parseInt(tabCoord[3]);
+		}
+		else{
+			this.y2 = Integer.parseInt(tabCoord[1]);
+			this.y1 = Integer.parseInt(tabCoord[3]);
 		}
 		Encadre = new Encadrer(tabCoord);
 	}
@@ -72,8 +72,8 @@ public class Ligne extends FormePrincipal{
 	@Override
 	public void setPosition(int x, int y) {
 		// TODO Auto-generated method stub
-		this.x2 = x + (this.x1 - this.x2);
-		this.y2 = y + (this.y1 - this.y2);
+		this.x2 = x + (this.x2 - this.x1);
+		this.y2 = y + (this.y2 - this.y1);
 		this.x1 = x;
 		this.y1 = y;
 		this.Encadre.setPosition(x, y);
