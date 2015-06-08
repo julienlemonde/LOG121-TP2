@@ -2,15 +2,15 @@
 Cours:  LOG121
 Session: E2015
 Projet: Squelette du laboratoire #1
-Étudiant(e)s: Marc-Antoine Hébert
+��tudiant(e)s: Marc-Antoine H��bert
 
 Professeur : Francis Cardinal
 Nom du fichier: Ligne.java
-Date créé: 2015-06-06
+Date cr����: 2015-06-06
 *******************************************************
 Historique des modifications
 *******************************************************
-*@author Marc-Antoine Hébert
+*@author Marc-Antoine H��bert
 2015-06-06 Version initiale
 *******************************************************/  
 package Formes;
@@ -19,9 +19,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * Classe qui va créer un objet de type Ligne selon les 
- * paramètres reçus et qui va donc permettre de dessiner 
- * une ligne dans la fenêtre principale.
+ * Classe qui va cr��er un objet de type Ligne selon les 
+ * param��tres re��us et qui va donc permettre de dessiner 
+ * une ligne dans la fen��tre principale.
  */
 public class Ligne extends FormePrincipal{
 
@@ -29,32 +29,31 @@ public class Ligne extends FormePrincipal{
 	private int y1;
 	private int x2;
 	private int y2;
+	private int oldx1;
+	private int oldx2;
+	private int oldy1;
+	private int oldy2;
 	private Encadrer Encadre;
 	
 	public Ligne(Formes.ReponseTraite reponseRecu, String [] tabCoord){
 		numSeq = reponseRecu.getID();
 		nomForme = reponseRecu.getTypeForme();
-		if(Integer.parseInt(tabCoord[0]) < Integer.parseInt(tabCoord[2])){
-			this.x1 = Integer.parseInt(tabCoord[0]);
-			this.x2 = Integer.parseInt(tabCoord[2]);
-		}
-		else{
+		
 			this.x2 = Integer.parseInt(tabCoord[0]);
 			this.x1 = Integer.parseInt(tabCoord[2]);
-		}
-		if(Integer.parseInt(tabCoord[1]) < Integer.parseInt(tabCoord[3])){
-			this.y1 = Integer.parseInt(tabCoord[1]);
-			this.y2 = Integer.parseInt(tabCoord[3]);
-		}
-		else{
 			this.y2 = Integer.parseInt(tabCoord[1]);
 			this.y1 = Integer.parseInt(tabCoord[3]);
-		}
+		
+			this.oldx1 = this.x1;
+			this.oldx2 = this.x2;
+			this.oldy1 = this.y1;
+			this.oldy2 = this.y2;
+		
 		Encadre = new Encadrer(tabCoord);
 	}
 		
 	/**
-	* Permet de dessiner la forme dans la fenêtre principale.
+	* Permet de dessiner la forme dans la fen��tre principale.
 	* @param g
 	*/
 	public void dessinerForme(Graphics g){		
@@ -72,11 +71,24 @@ public class Ligne extends FormePrincipal{
 	@Override
 	public void setPosition(int x, int y) {
 		// TODO Auto-generated method stub
-		this.x2 = x + (this.x2 - this.x1);
-		this.y2 = y + (this.y2 - this.y1);
-		this.x1 = x;
-		this.y1 = y;
+		
 		this.Encadre.setPosition(x, y);
+		
+		if(this.oldy1 < this.oldy2)
+		{
+			
+			this.x1 = this.Encadre.getPosition("x1");
+			this.y1 = this.Encadre.getPosition("y1");
+			this.x2 = this.Encadre.getPosition("x2");
+			this.y2 = this.Encadre.getPosition("y2");
+		}
+		else
+		{
+			this.x1 = this.Encadre.getPosition("x1");
+			this.y1 = this.Encadre.getPosition("y2");
+			this.x2 = this.Encadre.getPosition("x2");
+			this.y2 = this.Encadre.getPosition("y1");
+		}
 	}
 
 	@Override
