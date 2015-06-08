@@ -253,7 +253,7 @@ public class TriSelonMenu {
 	private static ListeDynamique TypeDeFormeInverse(ListeDynamique listATriee){
 		return listATriee;
 	}
-	//DONE!
+	//A FAIRE
 	private static ListeDynamique DistanceFormeDiagonale(ListeDynamique listATriee){
 		ListeDynamique listtrier = new ListeDynamique();
 		FormePrincipal formeATrie;

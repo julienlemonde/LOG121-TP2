@@ -2,15 +2,15 @@
 Cours:  LOG121
 Session: E2015
 Projet: Squelette du laboratoire #1
-Étudiant(e)s: Marc-Antoine Hébert
+��tudiant(e)s: Marc-Antoine H��bert
 
 Professeur : Francis Cardinal
 Nom du fichier: Rectangle.java
-Date créé: 2015-06-06
+Date cr����: 2015-06-06
 *******************************************************
 Historique des modifications
 *******************************************************
-*@author Marc-Antoine Hébert
+*@author Marc-Antoine H��bert
 2015-06-06 Version initiale
 *******************************************************/  
 package Formes;
@@ -22,9 +22,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * Classe qui va créer un objet de type Rectangle selon les 
- * paramètres reçus et qui va donc permettre de dessiner 
- * un rectangle dans la fenêtre principale.
+ * Classe qui va cr��er un objet de type Rectangle selon les 
+ * param��tres re��us et qui va donc permettre de dessiner 
+ * un rectangle dans la fen��tre principale.
  */
 public class Encadrer extends FormePrincipal{
 
@@ -55,7 +55,7 @@ public class Encadrer extends FormePrincipal{
 	}
 	
 	/**
-	* Permet de dessiner la forme dans la fenêtre principale.
+	* Permet de dessiner la forme dans la fen��tre principale.
 	* @param g
 	*/
 	public void dessinerForme(Graphics g){
@@ -99,6 +99,31 @@ public class Encadrer extends FormePrincipal{
 	}
 	public double getDiagonale(){
 		return Math.sqrt(((Math.pow((this.x2 - this.x1), 2)) + Math.pow((this.y2 - this.y1), 2)));
+	}
+	
+	public int getPosition(String coord)
+	{
+		int coordToReturn;
+		switch (coord) {
+		case "x1":
+			coordToReturn = this.x1;
+			break;
+		case "x2":
+			coordToReturn = this.x2;
+			break;
+		case "y1":
+			coordToReturn = this.y1;
+			break;
+		case "y2":
+			coordToReturn =  this.y2;
+			break;
+		default:
+			coordToReturn = 0;
+			break;
+			
+		
+		}
+		return coordToReturn;
 	}
 	
 	
