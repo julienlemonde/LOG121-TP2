@@ -1,15 +1,11 @@
 # LOG121-TP2
-# Project Name
 
-TODO: Write a project description
+Voici la Repo du TP2 du cours LOG-121 (Coupal, Julien, Marc, Malo)
 
-## Installation
+## Download the project
 
-TODO: Describe the installation process
+TODO: git clone https://github.com/alexandremalo/LOG121-TP2
 
-## Usage
-
-TODO: Write usage instructions
 
 ## Contributing
 
@@ -18,15 +14,3 @@ TODO: Write usage instructions
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
-
-## History
-
-TODO: Write history
-
-## Credits
-
-TODO: Write credits
-
-## License
-
-TODO: Write license
