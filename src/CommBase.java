@@ -1,0 +1,127 @@
+/******************************************************
+Cours:  LOG121
+Session: E2015
+Projet: Squelette du laboratoire #1
+Étudiant(e)s: Marc-Antoine Hébert
+
+Professeur : Francis Cardinal
+Nom du fichier: CommBase.java
+Date créé: 2013-05-03
+*******************************************************
+Historique des modifications
+*******************************************************
+*@author Patrice Boucher
+2013-05-03 Version initiale
+*******************************************************/  
+
+import java.beans.PropertyChangeListener;
+
+import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
+
+import Formes.FormePrincipal;
+
+/**
+ * Base d'une communication via un fil d'exécution parallèle.
+ */
+public class CommBase {
+	
+	private String input ;
+	private final int DELAI = 50;
+	@SuppressWarnings("rawtypes")
+	private SwingWorker threadComm =null;
+	private PropertyChangeListener listener = null;
+	private static boolean isActif = false;
+	private String hostname;
+	private int port;
+	
+	/**
+	 * Constructeur de base
+	 */
+	public CommBase(){}
+	
+	/**
+	 * Définir le récepteur de l'information reçue dans la communication avec le serveur
+	 * @param listener sera alerté lors de l'appel de "firePropertyChanger" par le SwingWorker
+	 */
+	public void setPropertyChangeListener(PropertyChangeListener listener){
+		this.listener = listener;
+	}
+	
+	/**
+	 * Démarre la communication avec le serveur
+	 */
+	public void start(){
+		input = JOptionPane.showInputDialog("Quel est le nom d'hôte et le port du serveur de formes?","localhost:10000");
+		
+		String [] infoServeur = input.split(":"); //Sépare la saisie de l'utilisateur afin de récupérer le nom d'hôte et le port
+		hostname = infoServeur[0]; //Assigne le hostname
+		port = Integer.parseInt(infoServeur[1]); //Assigne le port
+		Connexion.connexion(hostname,port); //Lance la connexion avec le serveur
+		isActif = true;
+		creerCommunication();
+	}
+	
+	/**
+	 * Arrête la communication avec le serveur
+	 */
+	public void stop(){
+				
+		if(isActif)
+			Connexion.deconnexion(); //Arrete la communication avec le serveur
+		
+		if(threadComm!=null)
+			threadComm.cancel(true); 
+		
+		isActif = false;
+	}
+	
+	/**
+	 * Créer le nécessaire pour la communication avec le serveur
+	 */
+	@SuppressWarnings("rawtypes")
+	protected void creerCommunication(){		
+		// Crée un fil d'exécusion parallèle au fil courant,
+				
+		threadComm = new SwingWorker(){
+			
+			@Override
+			protected Object doInBackground() throws Exception {
+				System.out.println("Le fils d'exécution parallèle est lancé !");
+				
+				// C'EST DANS CETTE BOUCLE QU'ON COMMUNIQUE AVEC LE SERVEUR
+				int index = 0 ;
+				while(true && index < 10){
+					
+					Thread.sleep(DELAI);					
+						String forme = Connexion.getForme(); //Récupère les formes
+						Formes.ReponseTraite ReponseDuServeur = new Formes.ReponseTraite(forme);
+						FormePrincipal formeADessiner = CreateurForme.creerForme(ReponseDuServeur); //Créer une nouvelle forme
+					
+						//La méthode suivante alerte l'observateur 
+						if(listener!=null)
+						{
+							System.out.println(ReponseDuServeur.getTypeForme());
+							firePropertyChange("ENVOIE-TEST", null, formeADessiner); //Donne la forme à l'observateur
+						}
+						index++;		
+				}
+				stop();	
+				return index;
+				
+				}
+			};
+		if(listener!=null)
+	    threadComm.addPropertyChangeListener(listener); // La méthode "propertyChange" de ApplicationFormes sera donc appelée lorsque le SwinkWorker invoquera la méthode "firePropertyChanger" 		
+		threadComm.execute(); // Lance le fil d'exécution parallèle.
+		isActif = true;
+	}
+	
+	/**
+	 * @return si le fil d'exécution parallèle est actif
+	 */
+	public static boolean isActif(){
+		return isActif;
+	}
+	
+}
