@@ -90,7 +90,11 @@ public class Ligne extends FormePrincipal{
 			this.y2 = this.Encadre.getPosition("y1");
 		}
 	}
-
+	public double getDiagonale()
+	{
+		return this.Encadre.getDiagonale();
+	}
+	
 	@Override
 	public Encadrer getEncadree() {
 		// TODO Auto-generated method stub

@@ -16,7 +16,9 @@ Historique des modifications
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+
 import javax.swing.JComponent;
+
 import Formes.FormePrincipal;
 
 /**
@@ -88,7 +90,12 @@ public class FenetreFormes extends JComponent{
 		
 	}
 	public void Trier(String methodeDeTri){
-		this.listeTriee = TriSelonMenu.selection(methodeDeTri, liste);
+		try {
+			this.listeTriee = TriSelonMenu.selection(methodeDeTri, liste);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.repaint();
 	}
 
