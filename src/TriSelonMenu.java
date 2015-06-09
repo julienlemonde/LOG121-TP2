@@ -1,4 +1,5 @@
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.time.temporal.JulianFields;
 import java.util.Collection;
 import java.util.Collections;
@@ -30,7 +31,7 @@ public class TriSelonMenu {
 	private static ListeDynamique listeDeFormeTriee = new ListeDynamique();
 	
 	
-	public static ListeDynamique selection(String MenuSelectionne, ListeDynamique listeRecu){
+	public static ListeDynamique selection(String MenuSelectionne, ListeDynamique listeRecu)throws Exception{
 		
 		ListeDynamique listeDeFormeRecu = new ListeDynamique();
 		listeDeFormeRecu = CopierListe(listeDeFormeRecu, listeRecu);
@@ -54,196 +55,20 @@ public class TriSelonMenu {
 		return listeDeFormeTriee ;
 	}
 	//DONE!
-	private static ListeDynamique numSeqCroissant(ListeDynamique listATriee){
-		ListeDynamique listtrier = new ListeDynamique();
-		FormePrincipal formeATrie;
-		FormePrincipal formeAVerifier;
-		
-
-		
-		
-		
-		while(listATriee.nbElement!=0){
-			formeATrie = (FormePrincipal) listATriee.defile();
-			
-			if(listtrier.getNbELement()==0)
-				listtrier.enfile(formeATrie);
-			else
-			{
-			
-
-				listtrier.PositionDebut();
-				formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-	
-				while(formeATrie.getNumSeq() > formeAVerifier.getNumSeq())
-				{
-					
-						
-						if(listtrier.getSuivantnull())
-						{
-							listtrier.enfile(formeATrie);
-							break;
-						}
-						listtrier.suivant();
-							
-						formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-						
-					
-				}
-				if(formeATrie.getNumSeq() < formeAVerifier.getNumSeq())
-				listtrier.insererAvant(formeATrie);
-			}
-			
-			
-		}
-		FormePrincipal test;
-		listtrier.PositionDebut();
-		for (int i = 0; i < 10; i++) {
-			test = (FormePrincipal) listtrier.defilePositionCourant();
-			System.out.println("-----------" + i);
-			System.out.println(test.getNumSeq());
-			listtrier.suivant();
-		}
-		listtrier = MettreToutBeau(listtrier);
-		return listtrier;
+	private static ListeDynamique numSeqCroissant(ListeDynamique listATriee)throws Exception{
+		return listATriee = TrierSelonChoix(listATriee, "getNumSeq","c");
 	}
 	//DONE!
-	private static ListeDynamique numSeqDecroissant(ListeDynamique listATriee){
-		ListeDynamique listtrier = new ListeDynamique();
-		FormePrincipal formeATrie;
-		FormePrincipal formeAVerifier;
-		
-		while(listATriee.nbElement!=0){
-			formeATrie = (FormePrincipal) listATriee.defile();
-			
-			if(listtrier.getNbELement()==0)
-				listtrier.enfile(formeATrie);
-			else
-			{
-				listtrier.PositionFin();
-				formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-				while(formeATrie.getNumSeq() > formeAVerifier.getNumSeq())
-				{
-					
-						
-						if(listtrier.getPrecedentnull())
-						{
-							listtrier.insererAvant(formeATrie);
-							break;
-						}
-						listtrier.precedent();
-							
-						formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-					
-				}
-				if(formeATrie.getNumSeq() < formeAVerifier.getNumSeq())
-				listtrier.insererApres(formeATrie);
-			}
-			
-			
-		}
-		FormePrincipal test;
-		listtrier.PositionDebut();
-		for (int i = 0; i < 10; i++) {
-			test = (FormePrincipal) listtrier.defilePositionCourant();
-			System.out.println("-----------" + i);
-			System.out.println(test.getNumSeq());
-			listtrier.suivant();
-		}
-		listtrier = MettreToutBeau(listtrier);
-		return listtrier;
+	private static ListeDynamique numSeqDecroissant(ListeDynamique listATriee)throws Exception{
+		return listATriee = TrierSelonChoix(listATriee, "getNumSeq","d");
 	}
 	//DONE!
-	private static ListeDynamique AireCroissant(ListeDynamique listATriee){
-		ListeDynamique listtrier = new ListeDynamique();
-		FormePrincipal formeATrie;
-		FormePrincipal formeAVerifier;
-		
-		while(listATriee.nbElement!=0){
-			formeATrie = (FormePrincipal) listATriee.defile();
-			
-			if(listtrier.getNbELement()==0)
-				listtrier.enfile(formeATrie);
-			else
-			{
-				listtrier.PositionDebut();
-				formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-				while(formeATrie.calculeAire() > formeAVerifier.calculeAire())
-				{
-					
-						
-						if(listtrier.getSuivantnull())
-						{
-							listtrier.enfile(formeATrie);
-							break;
-						}
-						listtrier.suivant();
-							
-						formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-					
-				}
-				if(formeATrie.calculeAire() < formeAVerifier.calculeAire())
-				listtrier.insererAvant(formeATrie);
-			}
-			
-			
-		}
-		FormePrincipal test;
-		listtrier.PositionDebut();
-		for (int i = 0; i < 10; i++) {
-			test = (FormePrincipal) listtrier.defilePositionCourant();
-			System.out.println("-----------" + i);
-			test.calculeAire();
-			listtrier.suivant();
-		}
-		listtrier = MettreToutBeau(listtrier);
-		return listtrier;
+	private static ListeDynamique AireCroissant(ListeDynamique listATriee)throws Exception{
+		return listATriee = TrierSelonChoix(listATriee, "calculeAire","c");
 	}
 	//DONE!
-	private static ListeDynamique AireDecroissant(ListeDynamique listATriee){
-		ListeDynamique listtrier = new ListeDynamique();
-		FormePrincipal formeATrie;
-		FormePrincipal formeAVerifier;
-		
-		while(listATriee.nbElement!=0){
-			formeATrie = (FormePrincipal) listATriee.defile();
-			
-			if(listtrier.getNbELement()==0)
-				listtrier.enfile(formeATrie);
-			else
-			{
-				listtrier.PositionFin();
-				formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-				while(formeATrie.calculeAire() > formeAVerifier.calculeAire())
-				{
-					
-						
-						if(listtrier.getPrecedentnull())
-						{
-							listtrier.insererAvant(formeATrie);
-							break;
-						}
-						listtrier.precedent();
-							
-						formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-					
-				}
-				if(formeATrie.calculeAire() < formeAVerifier.calculeAire())
-				listtrier.insererApres(formeATrie);
-			}
-			
-			
-		}
-		FormePrincipal test;
-		listtrier.PositionDebut();
-		for (int i = 0; i < 10; i++) {
-			test = (FormePrincipal) listtrier.defilePositionCourant();
-			System.out.println("-----------" + i);
-			test.calculeAire();
-			listtrier.suivant();
-		}
-		listtrier = MettreToutBeau(listtrier);
-		return listtrier;
+	private static ListeDynamique AireDecroissant(ListeDynamique listATriee)throws Exception{
+		return listATriee = TrierSelonChoix(listATriee, "calculeAire", "d");
 	}
 	//A FAIRE
 	private static ListeDynamique TypeDeForme(ListeDynamique listATriee){
@@ -254,53 +79,9 @@ public class TriSelonMenu {
 		return listATriee;
 	}
 	//A FAIRE
-	private static ListeDynamique DistanceFormeDiagonale(ListeDynamique listATriee){
-		ListeDynamique listtrier = new ListeDynamique();
-		FormePrincipal formeATrie;
-		FormePrincipal formeAVerifier;
-		
-		while(listATriee.nbElement!=0){
-			formeATrie = (FormePrincipal) listATriee.defile();
-			
-			if(listtrier.getNbELement()==0)
-				listtrier.enfile(formeATrie);
-			else
-			{
-				listtrier.PositionDebut();
-				formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-				while(formeATrie.getEncadree().getDiagonale() > formeAVerifier.getEncadree().getDiagonale())
-				{
-					
-						
-						if(listtrier.getSuivantnull())
-						{
-							listtrier.enfile(formeATrie);
-							break;
-						}
-						listtrier.suivant();
-							
-						formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-					
-				}
-				if(formeATrie.getEncadree().getDiagonale() < formeAVerifier.getEncadree().getDiagonale())
-				listtrier.insererAvant(formeATrie);
-			}
-			
-			
-		}
-		FormePrincipal test;
-		listtrier.PositionDebut();
-		for (int i = 0; i < 10; i++) {
-			test = (FormePrincipal) listtrier.defilePositionCourant();
-			System.out.println("-----------" + i);
-			double t = test.getEncadree().getDiagonale();
-			System.out.println(t);
-			listtrier.suivant();
-		}
-		listtrier = MettreToutBeau(listtrier);
-		return listtrier;
+	private static ListeDynamique DistanceFormeDiagonale(ListeDynamique listATriee)throws Exception{
+		return listATriee = TrierSelonChoix(listATriee, "getDiagonale", "s");
 	}
-	
 	
 	private static ListeDynamique MettreToutBeau(ListeDynamique listATriee){
 		int nbElement = listATriee.getNbELement();
@@ -312,6 +93,7 @@ public class TriSelonMenu {
 			listATriee.suivant();
 		}
 		return listATriee;
+		
 	}
 	
 	
@@ -325,6 +107,105 @@ public class TriSelonMenu {
 			index++;
 		}
 		return ListeARemplir;
+	}
+	
+	private static ListeDynamique TrierSelonChoix(ListeDynamique listATriee, String ChoixMethode, String ordre)throws Exception{
+		ListeDynamique listtrier = new ListeDynamique();
+		FormePrincipal formeATrie;
+		FormePrincipal formeAVerifier;
+		double ValeurATrie;
+		double ValeurAVerifier;
+		
+		
+
+		
+		
+		
+		while(listATriee.nbElement!=0){
+			formeATrie = (FormePrincipal) listATriee.defile();
+			
+			if(listtrier.getNbELement()==0)
+				listtrier.enfile(formeATrie);
+			else
+			{
+			
+				if(ordre == "c")
+				listtrier.PositionDebut();
+				if(ordre == "d")
+					listtrier.PositionFin();
+				formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
+				Method methodeATrie = formeATrie.getClass().getDeclaredMethod(ChoixMethode, null);
+				Method methodeAVerifier = formeAVerifier.getClass().getDeclaredMethod(ChoixMethode, null);
+				try{
+					ValeurATrie = (double) methodeATrie.invoke(formeATrie, null);
+					ValeurAVerifier = (double) methodeAVerifier.invoke(formeAVerifier, null);
+				}
+				catch(ClassCastException e)
+				{
+					ValeurATrie = (double) (int)methodeATrie.invoke(formeATrie, null);
+					ValeurAVerifier = (double) (int)methodeAVerifier.invoke(formeAVerifier, null);
+				}
+				
+	
+				while(ValeurATrie > ValeurAVerifier)
+				{
+					
+					if(ordre == "c")
+					{
+						if(listtrier.getSuivantnull())
+						{
+							listtrier.insererApres(formeATrie);
+							break;
+						}
+						listtrier.suivant();
+					}
+					if(ordre == "d")
+					{
+						if(listtrier.getPrecedentnull())
+						{
+							listtrier.insererAvant(formeATrie);
+							break;
+						}
+						listtrier.precedent();
+					}
+						
+							
+						formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
+						methodeAVerifier = formeAVerifier.getClass().getDeclaredMethod(ChoixMethode, null);
+						try
+						{
+							ValeurAVerifier = (double) methodeAVerifier.invoke(formeAVerifier, null);
+						}
+						catch(ClassCastException e)
+						{
+							ValeurAVerifier = (double) (int)methodeAVerifier.invoke(formeAVerifier, null);
+						}
+						
+						
+					
+				}
+				if(ValeurATrie < ValeurAVerifier)
+				{
+					if(ordre == "c")
+						listtrier.insererAvant(formeATrie);
+					if(ordre == "d")
+						listtrier.insererApres(formeATrie);
+						
+				}
+			}
+			
+			
+		}
+		FormePrincipal test;
+		listtrier.PositionDebut();
+		for (int i = 0; i < 10; i++) {
+			test = (FormePrincipal) listtrier.defilePositionCourant();
+			System.out.println("-----------" + i);
+			test.calculeAire();
+			listtrier.suivant();
+		}
+		listtrier = MettreToutBeau(listtrier);
+		return listtrier;
 	}
 	
 	

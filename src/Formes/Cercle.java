@@ -55,7 +55,7 @@ public class Cercle extends FormePrincipal{
 	
 	public double calculeAire()
 	{
-		System.out.println("Cercle: " + Math.PI * Math.pow(rayon, 2));
+		System.out.println("Cercle: " + Math.PI * Math.pow(rayon/2, 2));
 		return Math.PI * Math.pow(rayon/2, 2);
 	}
 
@@ -75,6 +75,9 @@ public class Cercle extends FormePrincipal{
 	public int getNumSeq() {
 		return numSeq;
 	}
-	
+	public double getDiagonale()
+	{
+		return this.Encadre.getDiagonale();
+	}
 	
 }

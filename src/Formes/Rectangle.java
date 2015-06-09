@@ -83,6 +83,10 @@ public class Rectangle extends FormePrincipal{
 		this.y1 = y;
 		this.Encadre.setPosition(x, y);
 	}
+	public double getDiagonale()
+	{
+		return this.Encadre.getDiagonale();
+	}
 	public int getNumSeq() {
 		return numSeq;
 	}
