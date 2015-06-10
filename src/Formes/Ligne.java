@@ -103,4 +103,7 @@ public class Ligne extends FormePrincipal{
 	public int getNumSeq() {
 		return numSeq;
 	}
+	public int getTypeForme(){
+		return 500000 + numSeq;
+	}
 }

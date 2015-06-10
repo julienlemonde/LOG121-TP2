@@ -45,9 +45,9 @@ public class TriSelonMenu {
 		} else if (LangueConfig.getResource(MENU_ORDRE_AIREDECROIS).equals(MenuSelectionne)) {
 			listeDeFormeTriee = AireDecroissant(listeDeFormeRecu);
 		} else if (LangueConfig.getResource(MENU_ORDRE_TYPEFORME).equals(MenuSelectionne)) {
-			TypeDeForme(listeDeFormeRecu);
+			listeDeFormeTriee = TypeDeForme(listeDeFormeRecu);
 		} else if (LangueConfig.getResource(MENU_ORDRE_TYPEFORMEINVERSE).equals(MenuSelectionne)) {
-			TypeDeFormeInverse(listeDeFormeRecu);
+			listeDeFormeTriee = TypeDeFormeInverse(listeDeFormeRecu);
 		} else if (LangueConfig.getResource(MENU_ORDRE_DISTANCEFORME).equals(MenuSelectionne)) {
 			listeDeFormeTriee = DistanceFormeDiagonale(listeDeFormeRecu);
 		} else {
@@ -70,17 +70,17 @@ public class TriSelonMenu {
 	private static ListeDynamique AireDecroissant(ListeDynamique listATriee)throws Exception{
 		return listATriee = TrierSelonChoix(listATriee, "calculeAire", "d");
 	}
-	//A FAIRE
-	private static ListeDynamique TypeDeForme(ListeDynamique listATriee){
-		return listATriee;
+	//DONE!
+	private static ListeDynamique TypeDeForme(ListeDynamique listATriee) throws Exception{
+		return listATriee = TrierSelonChoix(listATriee, "getTypeForme", "c"); 
 	}
-	//A FAIRE
-	private static ListeDynamique TypeDeFormeInverse(ListeDynamique listATriee){
-		return listATriee;
+	//DONE!
+	private static ListeDynamique TypeDeFormeInverse(ListeDynamique listATriee) throws Exception{
+		return listATriee = TrierSelonChoix(listATriee, "getTypeForme", "d");
 	}
 	//A FAIRE
 	private static ListeDynamique DistanceFormeDiagonale(ListeDynamique listATriee)throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "getDiagonale", "s");
+		return listATriee = TrierSelonChoix(listATriee, "getDiagonale", "c");
 	}
 	
 	private static ListeDynamique MettreToutBeau(ListeDynamique listATriee){

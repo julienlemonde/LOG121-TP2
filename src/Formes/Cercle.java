@@ -79,5 +79,7 @@ public class Cercle extends FormePrincipal{
 	{
 		return this.Encadre.getDiagonale();
 	}
-	
+	public int getTypeForme(){
+		return 300000 + numSeq;
+	}
 }

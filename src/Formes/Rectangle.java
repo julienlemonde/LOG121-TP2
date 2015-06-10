@@ -90,4 +90,7 @@ public class Rectangle extends FormePrincipal{
 	public int getNumSeq() {
 		return numSeq;
 	}
+	public int getTypeForme(){
+		return 200000 + numSeq;
+	}
 }

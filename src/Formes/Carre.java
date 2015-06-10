@@ -86,4 +86,10 @@ public class Carre extends FormePrincipal{
 		return numSeq;
 	}
 	
+	
+	public int getTypeForme(){
+		return 100000 + numSeq;
+		
+	}
+	
 }

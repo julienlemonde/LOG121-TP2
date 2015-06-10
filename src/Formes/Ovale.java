@@ -79,5 +79,8 @@ public class Ovale extends FormePrincipal{
 	public int getNumSeq() {
 		return numSeq;
 	}
+	public int getTypeForme(){
+		return 400000 + numSeq;
+	}
 	
 }
