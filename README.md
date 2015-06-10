@@ -1,6 +1,6 @@
 # LOG121-TP2
 
-Voici la Repo du TP2 du cours LOG-121 (Coupal, Julien, Marc, Malo)
+-Voici la Repo du TP2 du cours LOG-121 (Coupal, Julien, Marc, Malo)
 
 ## Download the project
 

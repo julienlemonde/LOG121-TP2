@@ -78,9 +78,18 @@ public class Carre extends FormePrincipal{
 		this.Encadre.setPosition(x, y);
 	}
 
-	
+	public double getDiagonale()
+	{
+		return this.Encadre.getDiagonale();
+	}
 	public int getNumSeq() {
 		return numSeq;
+	}
+	
+	
+	public int getTypeForme(){
+		return 100000 + numSeq;
+		
 	}
 	
 }

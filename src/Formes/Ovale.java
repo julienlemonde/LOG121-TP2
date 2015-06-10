@@ -67,7 +67,10 @@ public class Ovale extends FormePrincipal{
 		this.y = y;
 		this.Encadre.setPosition(x , y);
 	}
-
+	public double getDiagonale()
+	{
+		return this.Encadre.getDiagonale();
+	}
 	@Override
 	public Encadrer getEncadree() {
 		// TODO Auto-generated method stub
@@ -75,6 +78,9 @@ public class Ovale extends FormePrincipal{
 	}
 	public int getNumSeq() {
 		return numSeq;
+	}
+	public int getTypeForme(){
+		return 400000 + numSeq;
 	}
 	
 }
