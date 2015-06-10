@@ -1,8 +1,11 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
+Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
+			  Alexandre Malo
+			  Julien Lemonde
+			  Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: CreateurForme.java
@@ -14,7 +17,6 @@ Historique des modifications
 2015-06-06 Version initiale
 *******************************************************/  
 
-//import ca.etsmtl.log.util.IDLogger;
 import Formes.Carre;
 import Formes.Cercle;
 import Formes.FormePrincipal;

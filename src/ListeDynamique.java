@@ -1,10 +1,11 @@
-
-
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
+Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
+			  Alexandre Malo
+			  Julien Lemonde
+			  Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: ListeDynamique.java
@@ -13,7 +14,7 @@ Date créé: 2013-05-03
 Historique des modifications
 *******************************************************
 *@author Marc-Antoine Hébert
-2015-07-01 Version initiale
+2015-06-02 Version initiale
 *******************************************************/
 public class ListeDynamique{
     

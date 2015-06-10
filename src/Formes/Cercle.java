@@ -1,8 +1,11 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
+Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
+			  Alexandre Malo
+			  Julien Lemonde
+			  Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: Cercle.java
@@ -53,15 +56,13 @@ public class Cercle extends FormePrincipal{
 		g.fillOval(x,y,rayon,rayon);
 	}
 	
-	public double calculeAire()
-	{
+	public double calculeAire(){
 		System.out.println("Cercle: " + Math.PI * Math.pow(rayon/2, 2));
 		return Math.PI * Math.pow(rayon/2, 2);
 	}
 
 	@Override
 	public void setPosition(int x, int y) {
-		// TODO Auto-generated method stub
 		this.x = x;
 		this.y = y;
 		this.Encadre.setPosition(x, y);
@@ -69,14 +70,12 @@ public class Cercle extends FormePrincipal{
 
 	@Override
 	public Encadrer getEncadree() {
-		// TODO Auto-generated method stub
 		return this.Encadre;
 	}
 	public int getNumSeq() {
 		return numSeq;
 	}
-	public double getDiagonale()
-	{
+	public double getDiagonale(){
 		return this.Encadre.getDiagonale();
 	}
 	public int getTypeForme(){

@@ -1,30 +1,31 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
-��tudiant(e)s: Marc-Antoine H��bert
+Projet: Laboratoire #2
+Étudiant(e)s: Marc-Antoine Hébert
+			  Alexandre Malo
+			  Julien Lemonde
+			  Jean-Michel Coupal
 
 Professeur : Francis Cardinal
-Nom du fichier: Rectangle.java
-Date cr����: 2015-06-06
+Nom du fichier: Encadrer.java
+Date créé: 2015-06-06
 *******************************************************
 Historique des modifications
 *******************************************************
-*@author Marc-Antoine H��bert
+*@author 
 2015-06-06 Version initiale
 *******************************************************/  
 package Formes;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
-import java.awt.Stroke;
 import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * Classe qui va cr��er un objet de type Rectangle selon les 
- * param��tres re��us et qui va donc permettre de dessiner 
- * un rectangle dans la fen��tre principale.
+ * 
+ * 
  */
 public class Encadrer extends FormePrincipal{
 
@@ -55,7 +56,7 @@ public class Encadrer extends FormePrincipal{
 	}
 	
 	/**
-	* Permet de dessiner la forme dans la fen��tre principale.
+	* Permet de dessiner la forme dans la fenêtre principale.
 	* @param g
 	*/
 	public void dessinerForme(Graphics g){
@@ -73,13 +74,11 @@ public class Encadrer extends FormePrincipal{
 
 	@Override
 	public double calculeAire() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void setPosition(int x, int y) {
-		// TODO Auto-generated method stub
 		this.x2 = x + (this.x2 - this.x1);
 		this.y2 = y + (this.y2 - this.y1);
 		this.x1 = x;
@@ -88,13 +87,11 @@ public class Encadrer extends FormePrincipal{
 
 	@Override
 	public Encadrer getEncadree() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int getNumSeq() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	public double getDiagonale(){
@@ -120,9 +117,8 @@ public class Encadrer extends FormePrincipal{
 		default:
 			coordToReturn = 0;
 			break;
-			
-		
 		}
+		
 		return coordToReturn;
 	}
 	

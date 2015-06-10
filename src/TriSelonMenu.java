@@ -1,16 +1,24 @@
-import java.lang.reflect.InvocationTargetException;
+/******************************************************
+Cours:  LOG121
+Session: E2015
+Projet: Laboratoire #2
+Étudiant(e)s: Marc-Antoine Hébert
+			  Alexandre Malo
+			  Julien Lemonde
+			  Jean-Michel Coupal
+
+Professeur : Francis Cardinal
+Nom du fichier: TriSelonMenu.java
+Date créé: 2015-06-06
+*******************************************************
+Historique des modifications
+*******************************************************
+*@author 
+2015-06-06 Version initiale
+*******************************************************/  
+
 import java.lang.reflect.Method;
-import java.time.temporal.JulianFields;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.ListResourceBundle;
-
-import javax.swing.JButton;
-import javax.swing.MenuSelectionManager;
-
 import Formes.FormePrincipal;
-import Formes.InterfaceForme;
 
 
 public class TriSelonMenu {
@@ -116,11 +124,6 @@ public class TriSelonMenu {
 		double ValeurATrie;
 		double ValeurAVerifier;
 		
-		
-
-		
-		
-		
 		while(listATriee.nbElement!=0){
 			formeATrie = (FormePrincipal) listATriee.defile();
 			
@@ -134,16 +137,16 @@ public class TriSelonMenu {
 				if(ordre == "d")
 					listtrier.PositionFin();
 				formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-				Method methodeATrie = formeATrie.getClass().getDeclaredMethod(ChoixMethode, null);
-				Method methodeAVerifier = formeAVerifier.getClass().getDeclaredMethod(ChoixMethode, null);
+				Method methodeATrie = formeATrie.getClass().getDeclaredMethod(ChoixMethode);
+				Method methodeAVerifier = formeAVerifier.getClass().getDeclaredMethod(ChoixMethode);
 				try{
-					ValeurATrie = (double) methodeATrie.invoke(formeATrie, null);
-					ValeurAVerifier = (double) methodeAVerifier.invoke(formeAVerifier, null);
+					ValeurATrie = (double) methodeATrie.invoke(formeATrie);
+					ValeurAVerifier = (double) methodeAVerifier.invoke(formeAVerifier);
 				}
 				catch(ClassCastException e)
 				{
-					ValeurATrie = (double) (int)methodeATrie.invoke(formeATrie, null);
-					ValeurAVerifier = (double) (int)methodeAVerifier.invoke(formeAVerifier, null);
+					ValeurATrie = (double) (int)methodeATrie.invoke(formeATrie);
+					ValeurAVerifier = (double) (int)methodeAVerifier.invoke(formeAVerifier);
 				}
 				
 	
@@ -171,14 +174,14 @@ public class TriSelonMenu {
 						
 							
 						formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
-						methodeAVerifier = formeAVerifier.getClass().getDeclaredMethod(ChoixMethode, null);
+						methodeAVerifier = formeAVerifier.getClass().getDeclaredMethod(ChoixMethode);
 						try
 						{
-							ValeurAVerifier = (double) methodeAVerifier.invoke(formeAVerifier, null);
+							ValeurAVerifier = (double) methodeAVerifier.invoke(formeAVerifier);
 						}
 						catch(ClassCastException e)
 						{
-							ValeurAVerifier = (double) (int)methodeAVerifier.invoke(formeAVerifier, null);
+							ValeurAVerifier = (double) (int)methodeAVerifier.invoke(formeAVerifier);
 						}
 						
 						
@@ -192,10 +195,9 @@ public class TriSelonMenu {
 						listtrier.insererApres(formeATrie);
 						
 				}
-			}
-			
-			
+			}	
 		}
+		
 		FormePrincipal test;
 		listtrier.PositionDebut();
 		for (int i = 0; i < 10; i++) {
@@ -207,7 +209,4 @@ public class TriSelonMenu {
 		listtrier = MettreToutBeau(listtrier);
 		return listtrier;
 	}
-	
-	
-	
 }

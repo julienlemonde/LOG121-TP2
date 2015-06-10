@@ -1,8 +1,11 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
+Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
+			  Alexandre Malo
+			  Julien Lemonde
+			  Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: Ovale.java
@@ -62,7 +65,6 @@ public class Ovale extends FormePrincipal{
 
 	@Override
 	public void setPosition(int x, int y) {
-		// TODO Auto-generated method stub
 		this.x = x;
 		this.y = y;
 		this.Encadre.setPosition(x , y);
@@ -73,7 +75,6 @@ public class Ovale extends FormePrincipal{
 	}
 	@Override
 	public Encadrer getEncadree() {
-		// TODO Auto-generated method stub
 		return this.Encadre;
 	}
 	public int getNumSeq() {

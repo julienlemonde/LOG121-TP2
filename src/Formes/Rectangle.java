@@ -2,8 +2,11 @@ package Formes;
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
+Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
+			  Alexandre Malo
+			  Julien Lemonde
+			  Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: Rectangle.java
@@ -50,10 +53,7 @@ public class Rectangle extends FormePrincipal{
 			this.y2 = Integer.parseInt(tabCoord[1]);
 			this.y1 = Integer.parseInt(tabCoord[3]);
 		}
-		//x1 = Integer.parseInt(tabCoord[2]);
-		//y1 = Integer.parseInt(tabCoord[3]);
-		//x2 = Integer.parseInt(tabCoord[4]);
-		//y2 = Integer.parseInt(tabCoord[5]);
+		
 		Encadre = new Encadrer(tabCoord);
 	}
 	
@@ -76,7 +76,6 @@ public class Rectangle extends FormePrincipal{
 
 	@Override
 	public void setPosition(int x, int y) {
-		// TODO Auto-generated method stub
 		this.x2 = x + (this.x2 - this.x1);
 		this.y2 = y + (this.y2 - this.y1);
 		this.x1 = x;
