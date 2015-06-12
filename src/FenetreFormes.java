@@ -45,8 +45,6 @@ public class FenetreFormes extends JComponent{
 	public FenetreFormes(){
 		liste = new ListeDynamique();
 		listeTriee = new ListeDynamique();
-//		tabForme = new FormePrincipal[10];
-//		index = 0;
 	}
 	
 	/**
@@ -61,7 +59,6 @@ public class FenetreFormes extends JComponent{
 				forme.dessinerForme(g);	
 			}
 		}
-		
 	}
 	
 	
@@ -90,13 +87,16 @@ public class FenetreFormes extends JComponent{
 			liste.vider();
 			liste.enfile(forme);
 		}
-		
+		this.repaint();
 	}
+	
+	
+	
 	public void Trier(String methodeDeTri){
 		try {
 			this.listeTriee = TriSelonMenu.selection(methodeDeTri, liste);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 		this.repaint();

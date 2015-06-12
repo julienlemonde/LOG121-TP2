@@ -148,15 +148,15 @@ public class MenuFenetre extends JMenuBar{
 					@Override
 					protected Object doInBackground() throws Exception {
 						
-								if(listener!=null)
-									firePropertyChange("button", null, absButton.getText()); //Donne la forme à l'observateur
-										
-						
-						
+								if(listener!=null){
+									//Donne la forme à l'observateur
+									firePropertyChange("button", null, absButton.getText()); 
+								}		
 						return 1;
 					}
 						
-					};
+				};
+				
 				if(listener!=null)
 			    threadComm.addPropertyChangeListener(listener); // La méthode "propertyChange" de ApplicationFormes sera donc appelée lorsque le SwinkWorker invoquera la méthode "firePropertyChanger" 		
 				threadComm.execute(); // Lance le fil d'exécution parallèle.
@@ -216,7 +216,9 @@ public class MenuFenetre extends JMenuBar{
 	private static JMenu creerMenuRadio(String titleKey,String[] itemKeys) {
 		ButtonGroup group = new ButtonGroup();
         JMenu menu = new JMenu(LangueConfig.getResource(titleKey));
+        
         for(int i=0; i < itemKeys.length; ++i) {
+        	
         	JRadioButtonMenuItem button = new JRadioButtonMenuItem(LangueConfig.getResource(itemKeys[i]));
         	group.add(button);
             menu.add(button);

@@ -62,11 +62,11 @@ public class ListeDynamique{
     	nbElement++;
     }
     public void insererAvant(Object donnee) {
-		// Cree un nouveau noeud pour copier la positionCourant
-    	
-		Noeud nouveau = new Noeud(positioncourant.element,positioncourant.suivant);
-		// Place les nouvelles donnees dans la positionCourant
 		
+    	// Cree un nouveau noeud pour copier la positionCourant
+		Noeud nouveau = new Noeud(positioncourant.element,positioncourant.suivant);
+		
+		// Place les nouvelles donnees dans la positionCourant		
 			if(positioncourant != fin)
 			{
 				positioncourant.element = donnee;
@@ -118,10 +118,10 @@ public class ListeDynamique{
     		positioncourant = fin;
     	else
     	{
-    		Noeud tempo = positioncourant;
+    		Noeud temp = positioncourant;
     		positioncourant = debut;
-    		while (positioncourant.suivant != tempo) {
-			positioncourant = positioncourant.suivant;
+    		while (positioncourant.suivant != temp) {
+    			positioncourant = positioncourant.suivant;
     		}
 		}
     }
@@ -207,6 +207,7 @@ public class ListeDynamique{
     	
     	return returnValue;
     }
+    
     public boolean getPrecedentnull()
     {
     	boolean returnValue;

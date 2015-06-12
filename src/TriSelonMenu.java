@@ -58,39 +58,37 @@ public class TriSelonMenu {
 			listeDeFormeTriee = TypeDeFormeInverse(listeDeFormeRecu);
 		} else if (LangueConfig.getResource(MENU_ORDRE_DISTANCEFORME).equals(MenuSelectionne)) {
 			listeDeFormeTriee = DistanceFormeDiagonale(listeDeFormeRecu);
-		} else {
-		}
+		} 
+		else {}
+		
 		return listeDeFormeTriee ;
 	}
-	//DONE!
 	private static ListeDynamique numSeqCroissant(ListeDynamique listATriee)throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "getNumSeq","c");
+		return listATriee = TrierSelonChoix(listATriee, "getNumSeq",true);
 	}
-	//DONE!
 	private static ListeDynamique numSeqDecroissant(ListeDynamique listATriee)throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "getNumSeq","d");
+		return listATriee = TrierSelonChoix(listATriee, "getNumSeq",false);
 	}
-	//DONE!
 	private static ListeDynamique AireCroissant(ListeDynamique listATriee)throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "calculeAire","c");
+		return listATriee = TrierSelonChoix(listATriee, "calculeAire",true);
 	}
-	//DONE!
 	private static ListeDynamique AireDecroissant(ListeDynamique listATriee)throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "calculeAire", "d");
+		return listATriee = TrierSelonChoix(listATriee, "calculeAire", false);
 	}
-	//DONE!
 	private static ListeDynamique TypeDeForme(ListeDynamique listATriee) throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "getTypeForme", "c"); 
+		return listATriee = TrierSelonChoix(listATriee, "getTypeForme", true); 
 	}
-	//DONE!
 	private static ListeDynamique TypeDeFormeInverse(ListeDynamique listATriee) throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "getTypeForme", "d");
+		return listATriee = TrierSelonChoix(listATriee, "getTypeForme", false);
 	}
-	//A FAIRE
 	private static ListeDynamique DistanceFormeDiagonale(ListeDynamique listATriee)throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "getDiagonale", "c");
+		return listATriee = TrierSelonChoix(listATriee, "getDiagonale", true);
 	}
-	
+	/**
+	 * 
+	 * @param listATriee
+	 * @return
+	 */
 	private static ListeDynamique MettreToutBeau(ListeDynamique listATriee){
 		int nbElement = listATriee.getNbELement();
 		listATriee.PositionDebut();
@@ -104,7 +102,12 @@ public class TriSelonMenu {
 		
 	}
 	
-	
+	/**
+	 * 
+	 * @param ListeARemplir
+	 * @param ListeACopier
+	 * @return
+	 */
 	private static ListeDynamique CopierListe(ListeDynamique ListeARemplir, ListeDynamique ListeACopier){
 		ListeARemplir = new ListeDynamique();
 		int index = 0;
@@ -117,7 +120,15 @@ public class TriSelonMenu {
 		return ListeARemplir;
 	}
 	
-	private static ListeDynamique TrierSelonChoix(ListeDynamique listATriee, String ChoixMethode, String ordre)throws Exception{
+	/**
+	 * 
+	 * @param listATriee
+	 * @param ChoixMethode
+	 * @param croissant
+	 * @return
+	 * @throws Exception
+	 */
+	private static ListeDynamique TrierSelonChoix(ListeDynamique listATriee, String ChoixMethode, boolean croissant) throws Exception{
 		ListeDynamique listtrier = new ListeDynamique();
 		FormePrincipal formeATrie;
 		FormePrincipal formeAVerifier;
@@ -131,11 +142,14 @@ public class TriSelonMenu {
 				listtrier.enfile(formeATrie);
 			else
 			{
-			
-				if(ordre == "c")
-				listtrier.PositionDebut();
-				if(ordre == "d")
+				
+				//Croissant
+				if(croissant == true)
+					listtrier.PositionDebut();
+				//Décroissant
+				if(croissant == false)
 					listtrier.PositionFin();
+				
 				formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
 				Method methodeATrie = formeATrie.getClass().getDeclaredMethod(ChoixMethode);
 				Method methodeAVerifier = formeAVerifier.getClass().getDeclaredMethod(ChoixMethode);
@@ -153,7 +167,7 @@ public class TriSelonMenu {
 				while(ValeurATrie > ValeurAVerifier)
 				{
 					
-					if(ordre == "c")
+					if(croissant == true)
 					{
 						if(listtrier.getSuivantnull())
 						{
@@ -162,7 +176,8 @@ public class TriSelonMenu {
 						}
 						listtrier.suivant();
 					}
-					if(ordre == "d")
+					
+					if(croissant == false)
 					{
 						if(listtrier.getPrecedentnull())
 						{
@@ -189,9 +204,9 @@ public class TriSelonMenu {
 				}
 				if(ValeurATrie < ValeurAVerifier)
 				{
-					if(ordre == "c")
+					if(croissant == true)
 						listtrier.insererAvant(formeATrie);
-					if(ordre == "d")
+					if(croissant == false)
 						listtrier.insererApres(formeATrie);
 						
 				}
