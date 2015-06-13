@@ -1,8 +1,11 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
+Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
+			  Alexandre Malo
+			  Julien Lemonde
+			  Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: Carre.java
@@ -67,9 +70,11 @@ public class Carre extends FormePrincipal{
 		System.out.println("Carre: " + ((x2-x1)*(y2-y1)) );
 		return ((x2-x1)*(y2-y1));
 	}
+	
 	public Encadrer getEncadree(){
 		return this.Encadre;
 	}
+	
 	public void setPosition(int x, int y){
 		this.x2 = (x + (this.x2 - this.x1));
 		this.y2 = (y + (this.y2 - this.y1));
@@ -78,14 +83,13 @@ public class Carre extends FormePrincipal{
 		this.Encadre.setPosition(x, y);
 	}
 
-	public double getDiagonale()
-	{
+	public double getDiagonale(){
 		return this.Encadre.getDiagonale();
 	}
+	
 	public int getNumSeq() {
 		return numSeq;
 	}
-	
 	
 	public int getTypeForme(){
 		return 100000 + numSeq;

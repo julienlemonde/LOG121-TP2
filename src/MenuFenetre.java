@@ -1,8 +1,11 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
+Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
+			  Alexandre Malo
+			  Julien Lemonde
+			  Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: MenuFenetre.java
@@ -13,7 +16,7 @@ Historique des modifications
 *@author Patrice Boucher
 2013-05-03 Version initiale
 *@author Marc-Antoine Hébert
-2015-07-01 Ajout des éléments en JRadioButtonMenuItem
+2015-06-01 Ajout des éléments en JRadioButtonMenuItem
 *******************************************************/  
 
 import java.awt.event.ActionEvent;
@@ -30,8 +33,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.SwingWorker;
-
-import Formes.FormePrincipal;
 
 /**
  * Crée le menu de la fenêtre de l'application
@@ -71,7 +72,9 @@ public class MenuFenetre extends JMenuBar{
 	private static JRadioButtonMenuItem numSeqCroisMenuRadioItem, numSeqDecroisMenuRadioItem, aireCroisMenuRadioItem, aireDecroisMenuRadioItem, typeFormeMenuRadioItem, typeFormeInverseMenuRadioItem, distanceFormeMenuRadioItem;
 	private static final int DELAI_QUITTER_MSEC = 200;
 	private String MenuSelectionner;
+	@SuppressWarnings("rawtypes")
 	private SwingWorker threadComm =null;
+	@SuppressWarnings("unused")
 	private static boolean isActif = false;
 	
  	   
@@ -140,20 +143,20 @@ public class MenuFenetre extends JMenuBar{
 		ActionListener radioActionListener = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AbstractButton absButton = (AbstractButton) e.getSource();
-				threadComm = new SwingWorker(){
+				threadComm = new SwingWorker<Object, Object>(){
 					
 					@Override
 					protected Object doInBackground() throws Exception {
 						
-								if(listener!=null)
-									firePropertyChange("button", null, absButton.getText()); //Donne la forme à l'observateur
-										
-						
-						
+								if(listener!=null){
+									//Donne la forme à l'observateur
+									firePropertyChange("button", null, absButton.getText()); 
+								}		
 						return 1;
 					}
 						
-					};
+				};
+				
 				if(listener!=null)
 			    threadComm.addPropertyChangeListener(listener); // La méthode "propertyChange" de ApplicationFormes sera donc appelée lorsque le SwinkWorker invoquera la méthode "firePropertyChanger" 		
 				threadComm.execute(); // Lance le fil d'exécution parallèle.
@@ -213,7 +216,9 @@ public class MenuFenetre extends JMenuBar{
 	private static JMenu creerMenuRadio(String titleKey,String[] itemKeys) {
 		ButtonGroup group = new ButtonGroup();
         JMenu menu = new JMenu(LangueConfig.getResource(titleKey));
+        
         for(int i=0; i < itemKeys.length; ++i) {
+        	
         	JRadioButtonMenuItem button = new JRadioButtonMenuItem(LangueConfig.getResource(itemKeys[i]));
         	group.add(button);
             menu.add(button);

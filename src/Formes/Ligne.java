@@ -1,16 +1,19 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
-��tudiant(e)s: Marc-Antoine H��bert
+Projet: Laboratoire #2
+Étudiant(e)s: Marc-Antoine Hébert
+			  Alexandre Malo
+			  Julien Lemonde
+			  Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: Ligne.java
-Date cr����: 2015-06-06
+Date créé: 2015-06-06
 *******************************************************
 Historique des modifications
 *******************************************************
-*@author Marc-Antoine H��bert
+*@author Marc-Antoine Hébert
 2015-06-06 Version initiale
 *******************************************************/  
 package Formes;
@@ -19,9 +22,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * Classe qui va cr��er un objet de type Ligne selon les 
- * param��tres re��us et qui va donc permettre de dessiner 
- * une ligne dans la fen��tre principale.
+ * Classe qui va créer un objet de type Ligne selon les 
+ * paramètres reçus et qui va donc permettre de dessiner 
+ * une ligne dans la fenêtre principale.
  */
 public class Ligne extends FormePrincipal{
 
@@ -29,8 +32,6 @@ public class Ligne extends FormePrincipal{
 	private int y1;
 	private int x2;
 	private int y2;
-	private int oldx1;
-	private int oldx2;
 	private int oldy1;
 	private int oldy2;
 	private Encadrer Encadre;
@@ -44,8 +45,6 @@ public class Ligne extends FormePrincipal{
 			this.y2 = Integer.parseInt(tabCoord[1]);
 			this.y1 = Integer.parseInt(tabCoord[3]);
 		
-			this.oldx1 = this.x1;
-			this.oldx2 = this.x2;
 			this.oldy1 = this.y1;
 			this.oldy2 = this.y2;
 		
@@ -53,7 +52,7 @@ public class Ligne extends FormePrincipal{
 	}
 		
 	/**
-	* Permet de dessiner la forme dans la fen��tre principale.
+	* Permet de dessiner la forme dans la fenêtre principale.
 	* @param g
 	*/
 	public void dessinerForme(Graphics g){		
@@ -70,7 +69,6 @@ public class Ligne extends FormePrincipal{
 
 	@Override
 	public void setPosition(int x, int y) {
-		// TODO Auto-generated method stub
 		
 		this.Encadre.setPosition(x, y);
 		
@@ -97,7 +95,6 @@ public class Ligne extends FormePrincipal{
 	
 	@Override
 	public Encadrer getEncadree() {
-		// TODO Auto-generated method stub
 		return this.Encadre;
 	}
 	public int getNumSeq() {
