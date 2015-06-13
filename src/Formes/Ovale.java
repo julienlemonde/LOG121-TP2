@@ -1,28 +1,27 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
-Étudiant(e)s: Marc-Antoine Hébert
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: Ovale.java
-Date créé: 2015-06-06
+Date créé: 2015-05-03
 *******************************************************
-Historique des modifications
+Description de la classe
+Classe qui va créer un objet de type Ovale selon les 
+paramètres reçus et qui va donc permettre de dessiner 
+ une ovale dans la fenêtre principale.
 *******************************************************
-*@author Marc-Antoine Hébert
-2015-06-06 Version initiale
-*******************************************************/  
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-05-03 Version initiale
+*******************************************************/
 package Formes;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-/**
- * Classe qui va créer un objet de type Ovale selon les 
- * paramètres reçus et qui va donc permettre de dessiner 
- * une ovale dans la fenêtre principale.
- */
+
 public class Ovale extends FormePrincipal{
 
 	private int x;
@@ -31,6 +30,11 @@ public class Ovale extends FormePrincipal{
 	private int rayonV;
 	private Encadrer Encadre;
 	
+	/**
+	 * Constructeur de la forme ovale
+	 * @param reponseRecu Classe contenant les caracteristique de la forme
+	 * @param tabCoord Tableau contenant les positions de la forme
+	 */
 	public Ovale(Formes.ReponseTraite reponseRecu, String [] tabCoord){
 		numSeq = reponseRecu.getID();
 		nomForme = reponseRecu.getTypeForme();
@@ -54,31 +58,47 @@ public class Ovale extends FormePrincipal{
 		g.setColor(Color.CYAN);
 		g.fillOval(x,y,rayonH,rayonV);	
 	}
+	/**
+	 * Calule l'aire de l'ovale et le retourne en double
+	 */
 	public double calculeAire()
 	{
-		System.out.println("Ovale: "+ Math.PI * rayonH/2 * rayonV/2);
 		return Math.PI * rayonH/2 * rayonV/2;
 	}
 
-	@Override
+	/**
+	 * Mutateur afin de deplacer l'ovale selon des coordonnees x y
+	 */
 	public void setPosition(int x, int y) {
-		// TODO Auto-generated method stub
 		this.x = x;
 		this.y = y;
 		this.Encadre.setPosition(x , y);
 	}
+	/**
+	 * Accesseur de la diagonale de l'encadrer
+	 * @return La valeur en double de la longue diagonale
+	 */
 	public double getDiagonale()
 	{
 		return this.Encadre.getDiagonale();
 	}
-	@Override
+	/**
+	 * Accesseur de l'encadrer
+	 */
 	public Encadrer getEncadree() {
 		// TODO Auto-generated method stub
 		return this.Encadre;
 	}
+	/**
+	 * Accesseur du numero de sequence de l'ovale
+	 */
 	public int getNumSeq() {
 		return numSeq;
 	}
+	/**
+	 * Retourne un int unique contenant le type de forme et le numero de sequence 4 pour ovale
+	 * @return Numero unique d'identification des formes
+	 */
 	public int getTypeForme(){
 		return 400000 + numSeq;
 	}

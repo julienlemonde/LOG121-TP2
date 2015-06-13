@@ -1,20 +1,19 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
-Étudiant(e)s: Marc-Antoine Hébert
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: MenuFenetre.java
-Date créé: 2013-05-03
+Date créé: 2015-05-03
 *******************************************************
-Historique des modifications
+Description de la classe
+Cree le menu de la fenetre de l'application
 *******************************************************
-*@author Patrice Boucher
-2013-05-03 Version initiale
-*@author Marc-Antoine Hébert
-2015-07-01 Ajout des éléments en JRadioButtonMenuItem
-*******************************************************/  
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-05-03 Version initiale
+*******************************************************/ 
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,9 +32,6 @@ import javax.swing.SwingWorker;
 
 import Formes.FormePrincipal;
 
-/**
- * Crée le menu de la fenêtre de l'application
- */
 public class MenuFenetre extends JMenuBar{
 	
 
@@ -75,7 +71,7 @@ public class MenuFenetre extends JMenuBar{
 	private static boolean isActif = false;
 	
  	   
-	CommBase comm; // Pour activer/désactiver la communication avec le serveur
+	CommBase comm; // Thread pour envoyer le menu selectionner
 	
 	/**
 	 * Constructeur

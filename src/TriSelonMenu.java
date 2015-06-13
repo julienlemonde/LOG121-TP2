@@ -1,3 +1,19 @@
+/******************************************************
+Cours:  LOG121
+Session: E2015
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+
+Professeur : Francis Cardinal
+Nom du fichier: TriSelonMenu.java
+Date créé: 2015-06-01
+*******************************************************
+Description de la classe
+Classe Permettant de trie une liste dynamique selon un menu
+*******************************************************
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-06-01 Version initiale
+*******************************************************/ 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.time.temporal.JulianFields;
@@ -30,12 +46,21 @@ public class TriSelonMenu {
 
 	private static ListeDynamique listeDeFormeTriee = new ListeDynamique();
 	
-	
+	/**
+	 * Methode qui Trie une liste rentrer en paramètre selon le menu qui a ete selectionne
+	 * @param MenuSelectionne String du menu selectionne
+	 * @param listeRecu Liste de forme recu par le serveur
+	 * @return Une liste de formes et d'encadrer trie et pres a etre affiche
+	 * @throws Exception Exception concernant java.lang.reflect
+	 */
 	public static ListeDynamique selection(String MenuSelectionne, ListeDynamique listeRecu)throws Exception{
 		
+		//Cree une nouvelle liste et copie les formes de la liste recu par le serveur
+		//Afin de ne pas modifier directement la liste
 		ListeDynamique listeDeFormeRecu = new ListeDynamique();
 		listeDeFormeRecu = CopierListe(listeDeFormeRecu, listeRecu);
 		
+		//Comparaison pour savoir laquelle des methodes de trie il faut executer selon le menu selectionne
 		if (LangueConfig.getResource(MENU_ORDRE_NUMSEQCROIS).equals(MenuSelectionne)) {
 			listeDeFormeTriee = numSeqCroissant(listeDeFormeRecu);
 		} else if (LangueConfig.getResource(MENU_ORDRE_NUMSEQDECROIS).equals(MenuSelectionne)) {
@@ -52,37 +77,78 @@ public class TriSelonMenu {
 			listeDeFormeTriee = DistanceFormeDiagonale(listeDeFormeRecu);
 		} else {
 		}
+		//Retourne la liste prete a l'affichage
 		return listeDeFormeTriee ;
 	}
-	//DONE!
+	/**
+	 * Methode pour trier les formes selon le numero de sequence croissant
+	 * @param listATriee Copie de la liste recu par le serveur
+	 * @return Liste trier selon numero de sequence croissant
+	 * @throws Exception java.lang.reflect
+	 */
 	private static ListeDynamique numSeqCroissant(ListeDynamique listATriee)throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "getNumSeq","c");
+		return listATriee = TrierSelonChoix(listATriee, "getNumSeq",true);
 	}
-	//DONE!
+	/**
+	 * Methode pour trier les formes selon le numero de sequence decroissant
+	 * @param listATriee Copie de la liste recu par le serveur
+	 * @return Liste trier selon numero de sequence decroissant
+	 * @throws Exception java.lang.reflect
+	 */
 	private static ListeDynamique numSeqDecroissant(ListeDynamique listATriee)throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "getNumSeq","d");
+		return listATriee = TrierSelonChoix(listATriee, "getNumSeq",false);
 	}
-	//DONE!
+	/**
+	 * Methode pour trier les formes selon l'aire croissant
+	 * @param listATriee Copie de la liste recu par le serveur
+	 * @return Liste trier selon l'aire croissant
+	 * @throws Exception java.lang.reflect
+	 */
 	private static ListeDynamique AireCroissant(ListeDynamique listATriee)throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "calculeAire","c");
+		return listATriee = TrierSelonChoix(listATriee, "calculeAire",true);
 	}
-	//DONE!
+	/**
+	 * Methode pour trier les formes selon l'aire decroissant
+	 * @param listATriee Copie de la liste recu par le serveur
+	 * @return Liste trier selon l'aire decroissant
+	 * @throws Exception java.lang.reflect
+	 */
 	private static ListeDynamique AireDecroissant(ListeDynamique listATriee)throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "calculeAire", "d");
+		return listATriee = TrierSelonChoix(listATriee, "calculeAire", false);
 	}
-	//DONE!
+	/**
+	 * Methode pour trier les formes selon le type de forme
+	 * @param listATriee Copie de la liste recu par le serveur
+	 * @return Liste trier selon le type de forme
+	 * @throws Exception java.lang.reflect
+	 */
 	private static ListeDynamique TypeDeForme(ListeDynamique listATriee) throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "getTypeForme", "c"); 
+		return listATriee = TrierSelonChoix(listATriee, "getTypeForme", true); 
 	}
-	//DONE!
+	/**
+	 * Methode pour trier les formes selon le type de forme inverse
+	 * @param listATriee Copie de la liste recu par le serveur
+	 * @return Liste trier selon le type de forme inverse
+	 * @throws Exception java.lang.reflect
+	 */
 	private static ListeDynamique TypeDeFormeInverse(ListeDynamique listATriee) throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "getTypeForme", "d");
+		return listATriee = TrierSelonChoix(listATriee, "getTypeForme", false);
 	}
-	//A FAIRE
+	/**
+	 * Methode pour trier les formes selon la longueur de la plus longue diagonale croissant
+	 * @param listATriee Copie de la liste recu par le serveur
+	 * @return Liste trier selon la longueur de la plus longue diagonale
+	 * @throws Exception java.lang.reflect
+	 */
 	private static ListeDynamique DistanceFormeDiagonale(ListeDynamique listATriee)throws Exception{
-		return listATriee = TrierSelonChoix(listATriee, "getDiagonale", "c");
+		return listATriee = TrierSelonChoix(listATriee, "getDiagonale", true);
 	}
-	
+	/**
+	 * Methode bien positionner les formes dans le Graphics. Elle ne trie pas la liste, elle creer les
+	 * encadrer et positionne le tout
+	 * @param listATriee Liste deja trier selon une des methodes de trie
+	 * @return La liste prete a affichage
+	 */
 	private static ListeDynamique MettreToutBeau(ListeDynamique listATriee){
 		int nbElement = listATriee.getNbELement();
 		listATriee.PositionDebut();
@@ -96,7 +162,12 @@ public class TriSelonMenu {
 		
 	}
 	
-	
+	/**
+	 * Methode pour copier les informations d'une liste dans une nouvelle
+	 * @param ListeARemplir La nouvelle liste a remplir
+	 * @param ListeACopier La liste contenant les informations que nous avons besoin
+	 * @return Une liste contenant les informations de l'ancienne liste
+	 */
 	private static ListeDynamique CopierListe(ListeDynamique ListeARemplir, ListeDynamique ListeACopier){
 		ListeARemplir = new ListeDynamique();
 		int index = 0;
@@ -108,8 +179,15 @@ public class TriSelonMenu {
 		}
 		return ListeARemplir;
 	}
-	
-	private static ListeDynamique TrierSelonChoix(ListeDynamique listATriee, String ChoixMethode, String ordre)throws Exception{
+	/**
+	 * Methode qui va trier une liste recue en parametre selon different parametre
+	 * @param listATriee La liste devant etre trier
+	 * @param ChoixMethode La methode des formes que nous voulons comparer
+	 * @param isCroissant Indique si le trie se fait croissant ou decroissant
+	 * @return Une liste prete pour l'affichage
+	 * @throws Exception Java.lang.reflect
+	 */
+	private static ListeDynamique TrierSelonChoix(ListeDynamique listATriee, String ChoixMethode, boolean isCroissant)throws Exception{
 		ListeDynamique listtrier = new ListeDynamique();
 		FormePrincipal formeATrie;
 		FormePrincipal formeAVerifier;
@@ -129,14 +207,17 @@ public class TriSelonMenu {
 			else
 			{
 			
-				if(ordre == "c")
+				if(isCroissant)
 				listtrier.PositionDebut();
-				if(ordre == "d")
+				else
 					listtrier.PositionFin();
+				
 				formeAVerifier = (FormePrincipal)listtrier.defilePositionCourant();
+				
 				Method methodeATrie = formeATrie.getClass().getDeclaredMethod(ChoixMethode, null);
 				Method methodeAVerifier = formeAVerifier.getClass().getDeclaredMethod(ChoixMethode, null);
 				try{
+					//S'il n'y a pas d'erreur, il s'agit d'un double sinon un int qui doit etre caster en double
 					ValeurATrie = (double) methodeATrie.invoke(formeATrie, null);
 					ValeurAVerifier = (double) methodeAVerifier.invoke(formeAVerifier, null);
 				}
@@ -150,7 +231,7 @@ public class TriSelonMenu {
 				while(ValeurATrie > ValeurAVerifier)
 				{
 					
-					if(ordre == "c")
+					if(isCroissant)
 					{
 						if(listtrier.getSuivantnull())
 						{
@@ -159,7 +240,7 @@ public class TriSelonMenu {
 						}
 						listtrier.suivant();
 					}
-					if(ordre == "d")
+					else
 					{
 						if(listtrier.getPrecedentnull())
 						{
@@ -186,23 +267,15 @@ public class TriSelonMenu {
 				}
 				if(ValeurATrie < ValeurAVerifier)
 				{
-					if(ordre == "c")
+					if(isCroissant)
 						listtrier.insererAvant(formeATrie);
-					if(ordre == "d")
+					else
 						listtrier.insererApres(formeATrie);
 						
 				}
 			}
 			
 			
-		}
-		FormePrincipal test;
-		listtrier.PositionDebut();
-		for (int i = 0; i < 10; i++) {
-			test = (FormePrincipal) listtrier.defilePositionCourant();
-			System.out.println("-----------" + i);
-			test.calculeAire();
-			listtrier.suivant();
 		}
 		listtrier = MettreToutBeau(listtrier);
 		return listtrier;

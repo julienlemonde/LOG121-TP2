@@ -1,28 +1,26 @@
 package Formes;
-/******************************************************
-Cours:  LOG121
-Session: E2015
-Projet: Squelette du laboratoire #1
-Étudiant(e)s: Marc-Antoine Hébert
-
-Professeur : Francis Cardinal
-Nom du fichier: Rectangle.java
-Date créé: 2015-06-06
-*******************************************************
-Historique des modifications
-*******************************************************
-*@author Marc-Antoine Hébert
-2015-06-06 Version initiale
-*******************************************************/ 
-
 import java.awt.Color;
 import java.awt.Graphics;
 
-/**
- * Classe qui va créer un objet de type Rectangle selon les 
- * paramètres reçus et qui va donc permettre de dessiner 
- * un rectangle dans la fenêtre principale.
- */
+/******************************************************
+Cours:  LOG121
+Session: E2015
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+
+Professeur : Francis Cardinal
+Nom du fichier: Rectangle.java
+Date créé: 2015-05-03
+*******************************************************
+Description de la classe
+Classe qui va créer un objet de type Rectangle selon les 
+ paramètres reçus et qui va donc permettre de dessiner 
+ un rectangle dans la fenêtre principale.
+*******************************************************
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-05-03 Version initiale
+*******************************************************/
+
 public class Rectangle extends FormePrincipal{
 
 	private int x1;
@@ -31,29 +29,20 @@ public class Rectangle extends FormePrincipal{
 	private int y2;
 	private Encadrer Encadre;
 	
+	/**
+	 * Constructeur de la forme rectangle
+	 * @param reponseServeurTraite Classe contenant les caracteristiques de la forme rectangle
+	 * @param tabCoord Tableau contenant les positions du rectangle
+	 */
 	public Rectangle(ReponseTraite reponseServeurTraite, String [] tabCoord){
 		numSeq = reponseServeurTraite.getID();
 		nomForme = reponseServeurTraite.getTypeForme();
-		if(Integer.parseInt(tabCoord[0]) < Integer.parseInt(tabCoord[2])){
+		
 			this.x1 = Integer.parseInt(tabCoord[0]);
 			this.x2 = Integer.parseInt(tabCoord[2]);
-		}
-		else{
-			this.x2 = Integer.parseInt(tabCoord[0]);
-			this.x1 = Integer.parseInt(tabCoord[2]);
-		}
-		if(Integer.parseInt(tabCoord[1]) < Integer.parseInt(tabCoord[3])){
 			this.y1 = Integer.parseInt(tabCoord[1]);
 			this.y2 = Integer.parseInt(tabCoord[3]);
-		}
-		else{
-			this.y2 = Integer.parseInt(tabCoord[1]);
-			this.y1 = Integer.parseInt(tabCoord[3]);
-		}
-		//x1 = Integer.parseInt(tabCoord[2]);
-		//y1 = Integer.parseInt(tabCoord[3]);
-		//x2 = Integer.parseInt(tabCoord[4]);
-		//y2 = Integer.parseInt(tabCoord[5]);
+		
 		Encadre = new Encadrer(tabCoord);
 	}
 	
@@ -65,16 +54,23 @@ public class Rectangle extends FormePrincipal{
 		g.setColor(Color.YELLOW);
 		g.fillRect(x1,y1,x2-x1,y2-y1);	
 	}
+	/**
+	 * Accesseur de l'encadrer de la forme rectangle
+	 */
 	public Encadrer getEncadree(){
 		return this.Encadre;
 	}
+	/**
+	 * Methode pour calculer l'aire du rectangle
+	 */
 	public double calculeAire()
 	{
-		System.out.println("Rectangle: "+ ((x2-x1)*(y2-y1)));
 		return ((x2-x1)*(y2-y1));
 	}
 
-	@Override
+	/**
+	 * Mutateur pour deplacer le rectangle selon x y
+	 */
 	public void setPosition(int x, int y) {
 		// TODO Auto-generated method stub
 		this.x2 = x + (this.x2 - this.x1);
@@ -83,13 +79,24 @@ public class Rectangle extends FormePrincipal{
 		this.y1 = y;
 		this.Encadre.setPosition(x, y);
 	}
+	/**
+	 * Accesseur de la longueur de la diagonale de l'encadrer du rectangle
+	 * @return La longueur de la diagonale
+	 */
 	public double getDiagonale()
 	{
 		return this.Encadre.getDiagonale();
 	}
+	/**
+	 * Accesseur du numero de sequence
+	 */
 	public int getNumSeq() {
 		return numSeq;
 	}
+	/**
+	 * Retourne un int unique contenant le type de forme et le numero de sequence 2 pour rectangle
+	 * @return Numero unique d'identification des formes
+	 */
 	public int getTypeForme(){
 		return 200000 + numSeq;
 	}

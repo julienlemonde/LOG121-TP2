@@ -1,18 +1,20 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
-Étudiant(e)s: Marc-Antoine Hébert
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
 
 Professeur : Francis Cardinal
-Nom du fichier: CommBase.java
-Date créé: 2013-05-03
+Nom du fichier: Connexion.java
+Date créé: 2015-05-03
 *******************************************************
-Historique des modifications
+Description de la classe
+Base d'une communication via un fil d'exécution parallèle.
 *******************************************************
-*@author Patrice Boucher
-2013-05-03 Version initiale
-*******************************************************/  
+@author Patrice Boucher
+ @Modification Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+ @date 2013/05/04
+*******************************************************/ 
 
 import java.beans.PropertyChangeListener;
 
@@ -21,9 +23,7 @@ import javax.swing.SwingWorker;
 
 import Formes.FormePrincipal;
 
-/**
- * Base d'une communication via un fil d'exécution parallèle.
- */
+
 public class CommBase {
 	
 	private String input ;
