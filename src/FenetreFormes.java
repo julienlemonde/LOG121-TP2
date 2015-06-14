@@ -1,16 +1,8 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-<<<<<<< HEAD
-Projet: Laboratoire #2
-Étudiant(e)s: Marc-Antoine Hébert
-			  Alexandre Malo
-			  Julien Lemonde
-			  Jean-Michel Coupal
-=======
 Projet: Squelette du laboratoire #2
 Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: FenetreFormes.java
@@ -50,6 +42,8 @@ public class FenetreFormes extends JComponent{
 	public FenetreFormes(){
 		liste = new ListeDynamique();
 		listeTriee = new ListeDynamique();
+//		tabForme = new FormePrincipal[10];
+//		index = 0;
 	}
 	
 	/**
@@ -64,6 +58,7 @@ public class FenetreFormes extends JComponent{
 				forme.dessinerForme(g);	
 			}
 		}
+		
 	}
 	
 	
@@ -92,18 +87,8 @@ public class FenetreFormes extends JComponent{
 			liste.vider();
 			liste.enfile(forme);
 		}
-		this.repaint();
+		
 	}
-<<<<<<< HEAD
-	
-	
-	
-	public void Trier(String methodeDeTri){
-		try {
-			this.listeTriee = TriSelonMenu.selection(methodeDeTri, liste);
-		} 
-		catch (Exception e) {
-=======
 	/**
 	 * Methode qui prend le menu qui a ete selectionner et trie la liste selon ce menu
 	 * @param methodeDeTri Le nom du menu qui a ete selectionnee
@@ -124,7 +109,6 @@ public class FenetreFormes extends JComponent{
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 			e.printStackTrace();
 		}
 		this.repaint();

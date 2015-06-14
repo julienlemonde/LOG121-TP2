@@ -1,16 +1,8 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-<<<<<<< HEAD
-Projet: Laboratoire #2
-Étudiant(e)s: Marc-Antoine Hébert
-			  Alexandre Malo
-			  Julien Lemonde
-			  Jean-Michel Coupal
-=======
 Projet: Squelette du laboratoire #2
 Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: MenuFenetre.java
@@ -19,17 +11,9 @@ Date créé: 2015-05-03
 Description de la classe
 Cree le menu de la fenetre de l'application
 *******************************************************
-<<<<<<< HEAD
-*@author Patrice Boucher
-2013-05-03 Version initiale
-*@author Marc-Antoine Hébert
-2015-06-01 Ajout des éléments en JRadioButtonMenuItem
-*******************************************************/  
-=======
 *@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
 2015-05-03 Version initiale
 *******************************************************/ 
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,14 +30,8 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.SwingWorker;
 
-<<<<<<< HEAD
-/**
- * Crée le menu de la fenêtre de l'application
- */
-=======
 import Formes.FormePrincipal;
 
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 public class MenuFenetre extends JMenuBar{
 	
 
@@ -89,9 +67,7 @@ public class MenuFenetre extends JMenuBar{
 	private static JRadioButtonMenuItem numSeqCroisMenuRadioItem, numSeqDecroisMenuRadioItem, aireCroisMenuRadioItem, aireDecroisMenuRadioItem, typeFormeMenuRadioItem, typeFormeInverseMenuRadioItem, distanceFormeMenuRadioItem;
 	private static final int DELAI_QUITTER_MSEC = 200;
 	private String MenuSelectionner;
-	@SuppressWarnings("rawtypes")
 	private SwingWorker threadComm =null;
-	@SuppressWarnings("unused")
 	private static boolean isActif = false;
 	
  	   
@@ -160,20 +136,20 @@ public class MenuFenetre extends JMenuBar{
 		ActionListener radioActionListener = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AbstractButton absButton = (AbstractButton) e.getSource();
-				threadComm = new SwingWorker<Object, Object>(){
+				threadComm = new SwingWorker(){
 					
 					@Override
 					protected Object doInBackground() throws Exception {
 						
-								if(listener!=null){
-									//Donne la forme à l'observateur
-									firePropertyChange("button", null, absButton.getText()); 
-								}		
+								if(listener!=null)
+									firePropertyChange("button", null, absButton.getText()); //Donne la forme à l'observateur
+										
+						
+						
 						return 1;
 					}
 						
-				};
-				
+					};
 				if(listener!=null)
 			    threadComm.addPropertyChangeListener(listener); // La méthode "propertyChange" de ApplicationFormes sera donc appelée lorsque le SwinkWorker invoquera la méthode "firePropertyChanger" 		
 				threadComm.execute(); // Lance le fil d'exécution parallèle.
@@ -233,9 +209,7 @@ public class MenuFenetre extends JMenuBar{
 	private static JMenu creerMenuRadio(String titleKey,String[] itemKeys) {
 		ButtonGroup group = new ButtonGroup();
         JMenu menu = new JMenu(LangueConfig.getResource(titleKey));
-        
         for(int i=0; i < itemKeys.length; ++i) {
-        	
         	JRadioButtonMenuItem button = new JRadioButtonMenuItem(LangueConfig.getResource(itemKeys[i]));
         	group.add(button);
             menu.add(button);

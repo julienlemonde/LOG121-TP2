@@ -5,16 +5,8 @@ import java.awt.Graphics;
 /******************************************************
 Cours:  LOG121
 Session: E2015
-<<<<<<< HEAD
-Projet: Laboratoire #2
-Étudiant(e)s: Marc-Antoine Hébert
-			  Alexandre Malo
-			  Julien Lemonde
-			  Jean-Michel Coupal
-=======
 Projet: Squelette du laboratoire #2
 Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: Rectangle.java
@@ -50,14 +42,6 @@ public class Rectangle extends FormePrincipal{
 			this.x2 = Integer.parseInt(tabCoord[2]);
 			this.y1 = Integer.parseInt(tabCoord[1]);
 			this.y2 = Integer.parseInt(tabCoord[3]);
-<<<<<<< HEAD
-		}
-		else{
-			this.y2 = Integer.parseInt(tabCoord[1]);
-			this.y1 = Integer.parseInt(tabCoord[3]);
-		}
-=======
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 		
 		Encadre = new Encadrer(tabCoord);
 	}
@@ -88,6 +72,7 @@ public class Rectangle extends FormePrincipal{
 	 * Mutateur pour deplacer le rectangle selon x y
 	 */
 	public void setPosition(int x, int y) {
+		// TODO Auto-generated method stub
 		this.x2 = x + (this.x2 - this.x1);
 		this.y2 = y + (this.y2 - this.y1);
 		this.x1 = x;

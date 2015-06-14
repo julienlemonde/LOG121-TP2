@@ -1,54 +1,30 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-<<<<<<< HEAD
-Projet: Laboratoire #2
-Étudiant(e)s: Marc-Antoine Hébert
-			  Alexandre Malo
-			  Julien Lemonde
-			  Jean-Michel Coupal
-
-Professeur : Francis Cardinal
-Nom du fichier: Encadrer.java
-Date créé: 2015-06-06
-=======
 Projet: Squelette du laboratoire #2
 Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: Encadrer.java
 Date créé: 2015-06-01
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 *******************************************************
 Description de la classe
 Classe qui va creer un objet de type Rectangle selon les 
 parametres recus et qui va donc permettre de dessiner 
 un rectangle dans la fenetre principale.
 *******************************************************
-<<<<<<< HEAD
-*@author 
-2015-06-06 Version initiale
-*******************************************************/  
-=======
 *@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
 2015-06-01 Version initiale
 *******************************************************/ 
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 package Formes;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
+import java.awt.Stroke;
 import java.awt.Color;
 import java.awt.Graphics;
 
-<<<<<<< HEAD
-/**
- * 
- * 
- */
-=======
 
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 public class Encadrer extends FormePrincipal{
 
 	private int x1;
@@ -81,7 +57,7 @@ public class Encadrer extends FormePrincipal{
 	}
 	
 	/**
-	* Permet de dessiner la forme dans la fenêtre principale.
+	* Permet de dessiner la forme dans la fen��tre principale.
 	* @param g
 	*/
 	public void dessinerForme(Graphics g){
@@ -101,6 +77,7 @@ public class Encadrer extends FormePrincipal{
 	 * Calcule l'Aire de l'encadrer qui n'a aucune utiliter
 	 */
 	public double calculeAire() {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -108,6 +85,7 @@ public class Encadrer extends FormePrincipal{
 	 * Mutateur pour deplacer l'encadrer
 	 */
 	public void setPosition(int x, int y) {
+		// TODO Auto-generated method stub
 		this.x2 = x + (this.x2 - this.x1);
 		this.y2 = y + (this.y2 - this.y1);
 		this.x1 = x;
@@ -119,6 +97,7 @@ public class Encadrer extends FormePrincipal{
 	 */
 	@Override
 	public Encadrer getEncadree() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 	/**
@@ -126,6 +105,7 @@ public class Encadrer extends FormePrincipal{
 	 */
 	@Override
 	public int getNumSeq() {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 	/**
@@ -159,8 +139,9 @@ public class Encadrer extends FormePrincipal{
 		default:
 			coordToReturn = 0;
 			break;
-		}
+			
 		
+		}
 		return coordToReturn;
 	}
 	

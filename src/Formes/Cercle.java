@@ -1,16 +1,8 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-<<<<<<< HEAD
-Projet: Laboratoire #2
-Étudiant(e)s: Marc-Antoine Hébert
-			  Alexandre Malo
-			  Julien Lemonde
-			  Jean-Michel Coupal
-=======
 Projet: Squelette du laboratoire #2
 Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: Cercle.java
@@ -63,23 +55,18 @@ public class Cercle extends FormePrincipal{
 		g.setColor(Color.BLUE);
 		g.fillOval(x,y,rayon,rayon);
 	}
-<<<<<<< HEAD
-	
-	public double calculeAire(){
-		System.out.println("Cercle: " + Math.PI * Math.pow(rayon/2, 2));
-=======
 	/**
 	 * Methode pour calculer l'aire du cercle
 	 */
 	public double calculeAire()
 	{
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 		return Math.PI * Math.pow(rayon/2, 2);
 	}
 	/**
 	 * Accesseur pour changer la position de la forme
 	 */
 	public void setPosition(int x, int y) {
+		// TODO Auto-generated method stub
 		this.x = x;
 		this.y = y;
 		this.Encadre.setPosition(x, y);
@@ -89,6 +76,7 @@ public class Cercle extends FormePrincipal{
 	 * Retourne l'encadrer de la forme
 	 */
 	public Encadrer getEncadree() {
+		// TODO Auto-generated method stub
 		return this.Encadre;
 	}
 	/**
@@ -97,16 +85,12 @@ public class Cercle extends FormePrincipal{
 	public int getNumSeq() {
 		return numSeq;
 	}
-<<<<<<< HEAD
-	public double getDiagonale(){
-=======
 	/**
 	 * Retourne la grande diagonale de l'encadrer du cercle
 	 * @return Diagonale de la forme
 	 */
 	public double getDiagonale()
 	{
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 		return this.Encadre.getDiagonale();
 	}
 	/**

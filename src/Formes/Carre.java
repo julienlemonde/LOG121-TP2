@@ -1,16 +1,8 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-<<<<<<< HEAD
-Projet: Laboratoire #2
-Étudiant(e)s: Marc-Antoine Hébert
-			  Alexandre Malo
-			  Julien Lemonde
-			  Jean-Michel Coupal
-=======
 Projet: Squelette du laboratoire #2
 Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: Carre.java
@@ -71,13 +63,6 @@ public class Carre extends FormePrincipal{
 	{
 		return ((x2-x1)*(y2-y1));
 	}
-<<<<<<< HEAD
-	
-	public Encadrer getEncadree(){
-		return this.Encadre;
-	}
-	
-=======
 	/**
 	 * Retourne l'encadrer de la forme
 	 */
@@ -87,7 +72,6 @@ public class Carre extends FormePrincipal{
 	/**
 	 * Mutateur afin de modifier les positions de la forme carre
 	 */
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 	public void setPosition(int x, int y){
 		this.x2 = (x + (this.x2 - this.x1));
 		this.y2 = (y + (this.y2 - this.y1));
@@ -95,13 +79,6 @@ public class Carre extends FormePrincipal{
 		this.y1 = y;
 		this.Encadre.setPosition(x, y);
 	}
-<<<<<<< HEAD
-
-	public double getDiagonale(){
-		return this.Encadre.getDiagonale();
-	}
-	
-=======
 	/**
 	 * Obtient la grande diagonale de l'encadrer
 	 * @return Retourne la valeur en Double de la longueur de la diagonale
@@ -113,18 +90,14 @@ public class Carre extends FormePrincipal{
 	/**
 	 * Accesseur du numero de sequence
 	 */
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 	public int getNumSeq() {
 		return numSeq;
 	}
 	
-<<<<<<< HEAD
-=======
 	/**
 	 * Retourne un int unique qui comprend le type de forme 1 pour carrer et le numero de sequence
 	 * @return
 	 */
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 	public int getTypeForme(){
 		return 100000 + numSeq;
 		

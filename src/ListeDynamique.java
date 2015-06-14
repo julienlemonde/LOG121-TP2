@@ -1,16 +1,8 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-<<<<<<< HEAD
-Projet: Laboratoire #2
-Étudiant(e)s: Marc-Antoine Hébert
-			  Alexandre Malo
-			  Julien Lemonde
-			  Jean-Michel Coupal
-=======
 Projet: Squelette du laboratoire #2
 Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: ListeDynamique.java
@@ -19,15 +11,9 @@ Date créé: 2015-06-01
 Description de la classe
 Classe de liste dynamique qui reproduit pour l'utilisateur le principe d'un tableau
 *******************************************************
-<<<<<<< HEAD
-*@author Marc-Antoine Hébert
-2015-06-02 Version initiale
-*******************************************************/
-=======
 *@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
 2015-06-01 Version initiale
 *******************************************************/ 
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 public class ListeDynamique{
     
 	//Classe interne à la classe ListeDynamique
@@ -78,11 +64,11 @@ public class ListeDynamique{
      * @param donnee Object devant etre inserer
      */
     public void insererAvant(Object donnee) {
-		
-    	// Cree un nouveau noeud pour copier la positionCourant
+		// Cree un nouveau noeud pour copier la positionCourant
+    	
 		Noeud nouveau = new Noeud(positioncourant.element,positioncourant.suivant);
+		// Place les nouvelles donnees dans la positionCourant
 		
-		// Place les nouvelles donnees dans la positionCourant		
 			if(positioncourant != fin)
 			{
 				positioncourant.element = donnee;
@@ -144,10 +130,10 @@ public class ListeDynamique{
     		positioncourant = fin;
     	else
     	{
-    		Noeud temp = positioncourant;
+    		Noeud tempo = positioncourant;
     		positioncourant = debut;
-    		while (positioncourant.suivant != temp) {
-    			positioncourant = positioncourant.suivant;
+    		while (positioncourant.suivant != tempo) {
+			positioncourant = positioncourant.suivant;
     		}
 		}
     }
@@ -246,14 +232,10 @@ public class ListeDynamique{
     	
     	return returnValue;
     }
-<<<<<<< HEAD
-    
-=======
     /**
      * Verifie si l'objet precedent dans la liste est null
      * @return Vrai si l'objet precedent est null
      */
->>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
     public boolean getPrecedentnull()
     {
     	boolean returnValue;
