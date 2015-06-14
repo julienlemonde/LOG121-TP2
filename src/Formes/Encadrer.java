@@ -1,6 +1,7 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
+<<<<<<< HEAD
 Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
 			  Alexandre Malo
@@ -10,12 +11,29 @@ Projet: Laboratoire #2
 Professeur : Francis Cardinal
 Nom du fichier: Encadrer.java
 Date créé: 2015-06-06
+=======
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+
+Professeur : Francis Cardinal
+Nom du fichier: Encadrer.java
+Date créé: 2015-06-01
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 *******************************************************
-Historique des modifications
+Description de la classe
+Classe qui va creer un objet de type Rectangle selon les 
+parametres recus et qui va donc permettre de dessiner 
+un rectangle dans la fenetre principale.
 *******************************************************
+<<<<<<< HEAD
 *@author 
 2015-06-06 Version initiale
 *******************************************************/  
+=======
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-06-01 Version initiale
+*******************************************************/ 
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 package Formes;
 
 import java.awt.BasicStroke;
@@ -23,10 +41,14 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.Graphics;
 
+<<<<<<< HEAD
 /**
  * 
  * 
  */
+=======
+
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 public class Encadrer extends FormePrincipal{
 
 	private int x1;
@@ -34,7 +56,10 @@ public class Encadrer extends FormePrincipal{
 	private int x2;
 	private int y2;
 	
-	
+	/**
+	 * Constructeur de la forme encadrer
+	 * @param tabCoord Tableau des coordonnees de la forme super de l'encadrer
+	 */
 	public Encadrer(String [] tabCoord){
 		if(Integer.parseInt(tabCoord[0]) < Integer.parseInt(tabCoord[2])){
 			this.x1 = Integer.parseInt(tabCoord[0]);
@@ -72,12 +97,16 @@ public class Encadrer extends FormePrincipal{
 		g2.drawRect(x1,y1,x2-x1,y2-y1);	
 	}
 
-	@Override
+	/**
+	 * Calcule l'Aire de l'encadrer qui n'a aucune utiliter
+	 */
 	public double calculeAire() {
 		return 0;
 	}
 
-	@Override
+	/**
+	 * Mutateur pour deplacer l'encadrer
+	 */
 	public void setPosition(int x, int y) {
 		this.x2 = x + (this.x2 - this.x1);
 		this.y2 = y + (this.y2 - this.y1);
@@ -85,19 +114,32 @@ public class Encadrer extends FormePrincipal{
 		this.y1 = y;
 	}
 
+	/**
+	 * Methode recu par l'interface
+	 */
 	@Override
 	public Encadrer getEncadree() {
 		return null;
 	}
-
+	/**
+	 * Methode recu par l'interface
+	 */
 	@Override
 	public int getNumSeq() {
 		return 0;
 	}
+	/**
+	 * Calcule la diagonale de l'encadrer afin de pouvoir le donner a la forme
+	 * @return La longue diagonale
+	 */
 	public double getDiagonale(){
 		return Math.sqrt(((Math.pow((this.x2 - this.x1), 2)) + Math.pow((this.y2 - this.y1), 2)));
 	}
-	
+	/**
+	 * Methode qui retourne la position qui se trouve a un point en parametre
+	 * @param coord Le point pour lequel nous voulons la position
+	 * @return La position du point
+	 */
 	public int getPosition(String coord)
 	{
 		int coordToReturn;

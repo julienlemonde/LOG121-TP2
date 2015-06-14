@@ -1,6 +1,7 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
+<<<<<<< HEAD
 Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
 			  Alexandre Malo
@@ -10,22 +11,44 @@ Projet: Laboratoire #2
 Professeur : Francis Cardinal
 Nom du fichier: Ligne.java
 Date créé: 2015-06-06
+=======
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+
+Professeur : Francis Cardinal
+Nom du fichier: Ligne.java
+Date créé: 2015-05-03
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 *******************************************************
-Historique des modifications
+Description de la classe
+Classe qui va creer un objet de type Ligne selon les 
+parametres recus et qui va donc permettre de dessiner 
+une ligne dans la fenetre principale.
 *******************************************************
+<<<<<<< HEAD
 *@author Marc-Antoine Hébert
 2015-06-06 Version initiale
 *******************************************************/  
+=======
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-05-03 Version initiale
+*******************************************************/
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 package Formes;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
+<<<<<<< HEAD
 /**
  * Classe qui va créer un objet de type Ligne selon les 
  * paramètres reçus et qui va donc permettre de dessiner 
  * une ligne dans la fenêtre principale.
  */
+=======
+
+
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 public class Ligne extends FormePrincipal{
 
 	private int x1;
@@ -36,6 +59,11 @@ public class Ligne extends FormePrincipal{
 	private int oldy2;
 	private Encadrer Encadre;
 	
+	/**
+	 * Constructeur de la ligne
+	 * @param reponseRecu Classe contenant les caracteristiques de la ligne
+	 * @param tabCoord Tableau contenant les positions de la ligne
+	 */
 	public Ligne(Formes.ReponseTraite reponseRecu, String [] tabCoord){
 		numSeq = reponseRecu.getID();
 		nomForme = reponseRecu.getTypeForme();
@@ -45,6 +73,12 @@ public class Ligne extends FormePrincipal{
 			this.y2 = Integer.parseInt(tabCoord[1]);
 			this.y1 = Integer.parseInt(tabCoord[3]);
 		
+<<<<<<< HEAD
+=======
+			// Garde en memoire les coordonnees d'origine afin de garder la bonne orientation en tout temps
+			this.oldx1 = this.x1;
+			this.oldx2 = this.x2;
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 			this.oldy1 = this.y1;
 			this.oldy2 = this.y2;
 		
@@ -59,6 +93,9 @@ public class Ligne extends FormePrincipal{
 		g.setColor(Color.GREEN);
 		g.drawLine(x1,y1,x2,y2);			
 	}
+	/**
+	 * Calcule l'aire de la ligne
+	 */
 	public double calculeAire()
 	{
 		
@@ -66,12 +103,15 @@ public class Ligne extends FormePrincipal{
 		System.out.println("Ligne: "+ distance);
 		return 1 * distance;
 	}
-
-	@Override
+	
+	/**
+	 * Mutateur pour deplacer la ligne selon des points x, y
+	 */
 	public void setPosition(int x, int y) {
 		
 		this.Encadre.setPosition(x, y);
 		
+		//Verifie l'orientation de la ligne avant de changer les positions
 		if(this.oldy1 < this.oldy2)
 		{
 			
@@ -88,18 +128,31 @@ public class Ligne extends FormePrincipal{
 			this.y2 = this.Encadre.getPosition("y1");
 		}
 	}
+	/**
+	 * Methode pour recevoir la longue diagonale de la ligne
+	 * @return La valeur de la diagonale
+	 */
 	public double getDiagonale()
 	{
 		return this.Encadre.getDiagonale();
 	}
 	
-	@Override
+	/**
+	 * Accesseur de l'encadrer pour les lignes
+	 */
 	public Encadrer getEncadree() {
 		return this.Encadre;
 	}
+	/**
+	 * Accesseur du numero de sequence
+	 */
 	public int getNumSeq() {
 		return numSeq;
 	}
+	/**
+	 * Retourne un int unique contenant le type de forme et le numero de sequence 5 pour ligne
+	 * @return Numero unique d'identification des formes
+	 */
 	public int getTypeForme(){
 		return 500000 + numSeq;
 	}

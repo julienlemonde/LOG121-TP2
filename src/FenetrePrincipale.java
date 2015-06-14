@@ -1,21 +1,30 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
+<<<<<<< HEAD
 Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
 			  Alexandre Malo
 			  Julien Lemonde
 			  Jean-Michel Coupal
+=======
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: FenetrePrincipale.java
-Date créé: 2013-05-03
+Date créé: 2015-05-03
 *******************************************************
-Historique des modifications
+Description de la classe
+Cette classe représente la fenêtre principale de l'application 
+ @author Patrice Boucher
+ @Modification Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+ @date 2013/05/04
 *******************************************************
-*@author Patrice Boucher
-2013-05-03 Version initiale
-*******************************************************/  
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-06-01 Version initiale
+*******************************************************/ 
 
 import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
@@ -69,6 +78,7 @@ public class FenetrePrincipale extends JFrame implements PropertyChangeListener{
 		if(arg0.getPropertyName().equals("ENVOIE-TEST")){
 			fenetreFormes.ajouterForme((FormePrincipal)arg0.getNewValue());
 		}
+		//Si l'argument recu est d'un bouton
 		if(arg0.getPropertyName().equals("button")){
 			fenetreFormes.Trier(arg0.getNewValue().toString());
 		}
