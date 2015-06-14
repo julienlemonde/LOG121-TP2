@@ -1,31 +1,35 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
+<<<<<<< HEAD
 Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
 			  Alexandre Malo
 			  Julien Lemonde
 			  Jean-Michel Coupal
+=======
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: Carre.java
-Date créé: 2015-06-06
+Date créé: 2015-05-03
 *******************************************************
-Historique des modifications
+Description de la classe
+Classe qui va créer un objet de type Carre selon les 
+paramètres reçus et qui va donc permettre de dessiner 
+un carre dans la fenêtre principale.
 *******************************************************
-*@author Marc-Antoine Hébert
-2015-06-06 Version initiale
-*******************************************************/  
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-05-03 Version initiale
+*******************************************************/ 
 package Formes;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-/**
- * Classe qui va créer un objet de type Carre selon les 
- * paramètres reçus et qui va donc permettre de dessiner 
- * un carre dans la fenêtre principale.
- */
+
 public class Carre extends FormePrincipal{
 
 	private int x1;
@@ -34,25 +38,21 @@ public class Carre extends FormePrincipal{
 	private int y2;
 	private Encadrer Encadre;
 	
+	/**
+	 * Constructeur de la forme Carrer qui va prendre les informations du serveur et d'un tableau de coordonnee
+	 * pour ces parametres
+	 * @param reponseRecu Classe contenant les informations necessaire a la creation du carree
+	 * @param tabCoord Tableau de int contenant les points du carre
+	 */
 	public Carre(ReponseTraite reponseRecu, String [] tabCoord){
 		numSeq = reponseRecu.getID();
 		nomForme = reponseRecu.getTypeForme();
-		if(Integer.parseInt(tabCoord[0]) < Integer.parseInt(tabCoord[2])){
+	
 			this.x1 = Integer.parseInt(tabCoord[0]);
 			this.x2 = Integer.parseInt(tabCoord[2]);
-		}
-		else{
-			this.x2 = Integer.parseInt(tabCoord[0]);
-			this.x1 = Integer.parseInt(tabCoord[2]);
-		}
-		if(Integer.parseInt(tabCoord[1]) < Integer.parseInt(tabCoord[3])){
 			this.y1 = Integer.parseInt(tabCoord[1]);
 			this.y2 = Integer.parseInt(tabCoord[3]);
-		}
-		else{
-			this.y2 = Integer.parseInt(tabCoord[1]);
-			this.y1 = Integer.parseInt(tabCoord[3]);
-		}
+		//Cree l'encadrer de la forme	
 		Encadre = new Encadrer(tabCoord);
 	}
 		
@@ -64,17 +64,30 @@ public class Carre extends FormePrincipal{
 		g.setColor(Color.RED);
 		g.fillRect(x1,y1,x2-x1,y2-y1);
 	}
-	
+	/**
+	 * Methode pour calculer l'aire selon la forme
+	 */
 	public double calculeAire()
 	{
-		System.out.println("Carre: " + ((x2-x1)*(y2-y1)) );
 		return ((x2-x1)*(y2-y1));
 	}
+<<<<<<< HEAD
 	
 	public Encadrer getEncadree(){
 		return this.Encadre;
 	}
 	
+=======
+	/**
+	 * Retourne l'encadrer de la forme
+	 */
+	public Encadrer getEncadree(){
+		return this.Encadre;
+	}
+	/**
+	 * Mutateur afin de modifier les positions de la forme carre
+	 */
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 	public void setPosition(int x, int y){
 		this.x2 = (x + (this.x2 - this.x1));
 		this.y2 = (y + (this.y2 - this.y1));
@@ -82,15 +95,36 @@ public class Carre extends FormePrincipal{
 		this.y1 = y;
 		this.Encadre.setPosition(x, y);
 	}
+<<<<<<< HEAD
 
 	public double getDiagonale(){
 		return this.Encadre.getDiagonale();
 	}
 	
+=======
+	/**
+	 * Obtient la grande diagonale de l'encadrer
+	 * @return Retourne la valeur en Double de la longueur de la diagonale
+	 */
+	public double getDiagonale()
+	{
+		return this.Encadre.getDiagonale();
+	}
+	/**
+	 * Accesseur du numero de sequence
+	 */
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 	public int getNumSeq() {
 		return numSeq;
 	}
 	
+<<<<<<< HEAD
+=======
+	/**
+	 * Retourne un int unique qui comprend le type de forme 1 pour carrer et le numero de sequence
+	 * @return
+	 */
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 	public int getTypeForme(){
 		return 100000 + numSeq;
 		

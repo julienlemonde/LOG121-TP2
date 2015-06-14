@@ -1,23 +1,35 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
+<<<<<<< HEAD
 Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
 			  Alexandre Malo
 			  Julien Lemonde
 			  Jean-Michel Coupal
+=======
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: MenuFenetre.java
-Date créé: 2013-05-03
+Date créé: 2015-05-03
 *******************************************************
-Historique des modifications
+Description de la classe
+Cree le menu de la fenetre de l'application
 *******************************************************
+<<<<<<< HEAD
 *@author Patrice Boucher
 2013-05-03 Version initiale
 *@author Marc-Antoine Hébert
 2015-06-01 Ajout des éléments en JRadioButtonMenuItem
 *******************************************************/  
+=======
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-05-03 Version initiale
+*******************************************************/ 
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,9 +46,14 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.SwingWorker;
 
+<<<<<<< HEAD
 /**
  * Crée le menu de la fenêtre de l'application
  */
+=======
+import Formes.FormePrincipal;
+
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 public class MenuFenetre extends JMenuBar{
 	
 
@@ -78,7 +95,7 @@ public class MenuFenetre extends JMenuBar{
 	private static boolean isActif = false;
 	
  	   
-	CommBase comm; // Pour activer/désactiver la communication avec le serveur
+	CommBase comm; // Thread pour envoyer le menu selectionner
 	
 	/**
 	 * Constructeur

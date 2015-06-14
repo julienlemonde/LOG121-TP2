@@ -1,20 +1,27 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
+<<<<<<< HEAD
 Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
 			  Alexandre Malo
 			  Julien Lemonde
 			  Jean-Michel Coupal
+=======
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: Connexion.java
-Date créé: 2015-06-06
+Date créé: 2015-05-03
 *******************************************************
-Historique des modifications
+Description de la classe
+Classe permettant la gestion et la communication avec 
+le serveur (Connexion, déconnexion, demande de forme, etc)
 *******************************************************
-*@author Marc-Antoine Hébert
-2015-06-06 Version initiale
+@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-05-03 Version initiale
 *******************************************************/  
 
 import java.io.BufferedReader;

@@ -1,34 +1,39 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
+<<<<<<< HEAD
 Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
 			  Alexandre Malo
 			  Julien Lemonde
 			  Jean-Michel Coupal
+=======
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: FenetreFormes.java
-Date créé: 2013-05-03
+Date créé: 2015-05-03
 *******************************************************
-Historique des modifications
+Description de la classe
+Cette fenêtre gère l'affichage des formes 
+ @author Patrice Boucher
+ @Modification Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+ @date 2013/05/04
 *******************************************************
-*@author Patrice Boucher
-2013-05-03 Version initiale
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-05-03 Version initiale
 *******************************************************/  
 
 import java.awt.Dimension;
 import java.awt.Graphics;
 
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 
 import Formes.FormePrincipal;
 
-/**
- * Cette fenêtre gère l'affichage des formes 
- * @author Patrice Boucher
- * @date 2013/05/04
- */
 public class FenetreFormes extends JComponent{
 	
 	private static final long serialVersionUID = -2262235643903749505L;
@@ -89,6 +94,7 @@ public class FenetreFormes extends JComponent{
 		}
 		this.repaint();
 	}
+<<<<<<< HEAD
 	
 	
 	
@@ -97,9 +103,32 @@ public class FenetreFormes extends JComponent{
 			this.listeTriee = TriSelonMenu.selection(methodeDeTri, liste);
 		} 
 		catch (Exception e) {
+=======
+	/**
+	 * Methode qui prend le menu qui a ete selectionner et trie la liste selon ce menu
+	 * @param methodeDeTri Le nom du menu qui a ete selectionnee
+	 */
+	public void Trier(String methodeDeTri){
+		try {
+			if(this.liste.nbElement != 0)
+				this.listeTriee = TriSelonMenu.selection(methodeDeTri, liste);
+			else
+			{
+				JOptionPane.showOptionDialog(null,
+		                   "Veuillez obtenir les formes avant de choisir parmis c'est options","Erreur Formes",
+		                   JOptionPane.PLAIN_MESSAGE,
+		                   JOptionPane.QUESTION_MESSAGE,
+		                   null,
+		                   null,
+		                   null);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 			e.printStackTrace();
 		}
 		this.repaint();
 	}
+
 
 }

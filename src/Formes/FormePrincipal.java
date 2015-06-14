@@ -1,30 +1,31 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
+<<<<<<< HEAD
 Projet: Laboratoire #2
 Étudiant(e)s: Marc-Antoine Hébert
 			  Alexandre Malo
 			  Julien Lemonde
 			  Jean-Michel Coupal
+=======
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+>>>>>>> bbd277b40decbafc62d77589b24dd3bc4bd004db
 
 Professeur : Francis Cardinal
 Nom du fichier: FormePrincipal.java
-Date créé: 2015-06-06
+Date créé: 2015-05-03
 *******************************************************
-Historique des modifications
+Description de la classe
+Classe abstraite qui regroup les formes
 *******************************************************
-*@author Marc-Antoine Hébert
-2015-06-06 Version initiale
-*******************************************************/  
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-05-03 Version initiale
+*******************************************************/
 package Formes;
 
 import java.awt.Graphics;
 
-/**
- * 
- * Classe abstraite qui regroupe les formes
- *
- */
 public abstract class FormePrincipal implements InterfaceForme {
 	
 	public FormePrincipal forme;
