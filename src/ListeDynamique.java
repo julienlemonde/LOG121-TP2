@@ -1,20 +1,19 @@
-
-
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
-Étudiant(e)s: Marc-Antoine Hébert
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: ListeDynamique.java
-Date créé: 2013-05-03
+Date créé: 2015-06-01
 *******************************************************
-Historique des modifications
+Description de la classe
+Classe de liste dynamique qui reproduit pour l'utilisateur le principe d'un tableau
 *******************************************************
-*@author Marc-Antoine Hébert
-2015-07-01 Version initiale
-*******************************************************/
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-06-01 Version initiale
+*******************************************************/ 
 public class ListeDynamique{
     
 	//Classe interne à la classe ListeDynamique
@@ -60,6 +59,10 @@ public class ListeDynamique{
     	
     	nbElement++;
     }
+    /**
+     * Methode permettant d'inserer la valeur avant la position courante
+     * @param donnee Object devant etre inserer
+     */
     public void insererAvant(Object donnee) {
 		// Cree un nouveau noeud pour copier la positionCourant
     	
@@ -87,7 +90,10 @@ public class ListeDynamique{
     	
     	
 	}
-    
+    /**
+     * Methode pour inserer la donnee apres la position courante
+     * @param donnee Object devant etre inserer
+     */
     public void insererApres(Object donnee)
     {
     	if(positioncourant != fin)
@@ -103,7 +109,10 @@ public class ListeDynamique{
     	}
 		nbElement++;
     }
-    
+    /**
+     * Avance la position courante de 1. Il s'agit d'une liste circulaire donc s'il n'y a pas de pochain,
+     * la position courante retourne au début
+     */
     public void suivant()
     {
     	if(positioncourant.suivant !=null)
@@ -111,6 +120,10 @@ public class ListeDynamique{
     	else
     		positioncourant = debut;
     }
+    /**
+     * Recule la position courante de 1. Il s'agit d'une liste circulaire donc s'il n'y a pas de precedent,
+     * la position courante retourne a la fin
+     */
     public void precedent()
     {
     	if(positioncourant == debut)
@@ -124,11 +137,16 @@ public class ListeDynamique{
     		}
 		}
     }
-    
+    /**
+     * Deplace la position courante au debut
+     */
     public void PositionDebut()
     {
     	positioncourant = debut;
     }
+    /**
+     * Deplace la position courante a la fin
+     */
     public void PositionFin()
     {
     	positioncourant = fin;
@@ -187,6 +205,10 @@ public class ListeDynamique{
     public int getNbELement(){
     	return nbElement;
     }
+    /**
+     * Defile sans retirer l'element a la position courante
+     * @return Retourne l'objet a la position courante
+     */
     public Object defilePositionCourant(){
     	if(nbElement == 0 )
     		return null;
@@ -194,6 +216,10 @@ public class ListeDynamique{
     		return positioncourant.element;
     }
     
+    /**
+     * Verifie si le prochain object dans la liste est null
+     * @return Vrai si le prochain objet est null
+     */
     public boolean getSuivantnull()
     {
     	boolean returnValue;
@@ -206,6 +232,10 @@ public class ListeDynamique{
     	
     	return returnValue;
     }
+    /**
+     * Verifie si l'objet precedent dans la liste est null
+     * @return Vrai si l'objet precedent est null
+     */
     public boolean getPrecedentnull()
     {
     	boolean returnValue;
@@ -218,7 +248,10 @@ public class ListeDynamique{
 		
     	return returnValue;
     }
-    
+    /**
+     * Defile sans enlever le dernier Objet de la liste
+     * @return
+     */
     public Object defileFin(){
     	if(nbElement == 0 )
     		return null;

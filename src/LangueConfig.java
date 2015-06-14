@@ -1,26 +1,23 @@
 /******************************************************
 Cours:  LOG121
 Session: E2015
-Projet: Squelette du laboratoire #1
-Étudiant(e)s: Marc-Antoine Hébert
+Projet: Squelette du laboratoire #2
+Étudiant(e)s: Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
 
 Professeur : Francis Cardinal
 Nom du fichier: LangueConfig.java
-Date créé: 2013-05-03
+Date créé: 2015-05-03
 *******************************************************
-* Ce code est basé d'un exemple sur Internet, de David Geary, à la page suivante:
-* http://www.javaworld.com/javaworld/jw-05-2003/jw-0530-designpatterns-p2.html
-Historique des modifications
+Description de la classe
+Utilitaire pour obtenir un mot dans la langue de l'application
 *******************************************************
-2013-05-03 Version initiale
-*******************************************************/  
+*@author Julien Lemonde, Alexandre Malo, Marc-Antoine Hebert, Jean-Michel Coupal
+2015-06-01 Version initiale
+*******************************************************/ 
 
 import java.util.Locale;
 import java.util.ResourceBundle;	
 
-/**
- * Utilitaire pour obtenir un mot dans la langue de l'application
- */
 public class LangueConfig {
 	
 	static private final String PREFS_BUNDLE_BASENAME = "prefs";
